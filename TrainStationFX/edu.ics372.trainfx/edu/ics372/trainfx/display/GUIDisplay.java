@@ -16,9 +16,8 @@ import javafx.stage.WindowEvent;
 
 public class GUIDisplay extends Application implements TrainDisplay {
 
-	GUIButton AtStationButton; // TODO is this needed? Maybe a Text field to show if we're at a station or in
-								// transit is better? Or does trainStatus cover those bases.
-	GUIButton ApproachingButton; // TODO is this needed? Same as above.
+	GUIButton AtStationButton;
+	GUIButton ApproachingButton;
 	GUIButton ObstructionButton;
 	private Text trainStatus = new Text("Train is stopped and doors are closed"); // TODO The train will need to "start"
 																					// somewhere.
