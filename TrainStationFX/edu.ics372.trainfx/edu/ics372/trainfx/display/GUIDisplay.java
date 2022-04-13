@@ -1,7 +1,5 @@
 package edu.ics372.trainfx.display;
 
-import org.oobook.microwavev2fx.states.MicrowaveContext;
-
 import edu.ics372.trainfx.buttons.ApproachingStationButton;
 import edu.ics372.trainfx.buttons.ArrivedAtStationButton;
 import edu.ics372.trainfx.buttons.GUIButton;
@@ -38,7 +36,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		ObstructionButton = new ObstructionButton("Obstruction");
 		ApproachingButton = new ApproachingStationButton("Approaching Station");
 		AtStationButton = new ArrivedAtStationButton("Arrived at Station");
-		
+
 		GridPane pane = new GridPane();
 		pane.setHgap(10);
 		pane.setVgap(10);
@@ -52,7 +50,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("TrainGUI");
 		primaryStage.show();
-		
+
 		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent window) {
