@@ -1,6 +1,7 @@
 package edu.ics372.trainfx.buttons;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 /**
  * This button triggers an obstruction event.
@@ -8,7 +9,7 @@ import javafx.event.ActionEvent;
  * @author Jim Sawicki
  * 
  */
-public class ObstructionButton extends GUIButton {
+public class ObstructionButton extends GUIButton implements EventHandler<ActionEvent>{
 
 	public ObstructionButton(String string) {
 		super(string);

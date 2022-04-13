@@ -1,9 +1,16 @@
 package edu.ics372.trainfx.display;
 
+import org.oobook.microwavev2fx.states.MicrowaveContext;
+
+import edu.ics372.trainfx.buttons.ApproachingStationButton;
+import edu.ics372.trainfx.buttons.ArrivedAtStationButton;
 import edu.ics372.trainfx.buttons.GUIButton;
 import edu.ics372.trainfx.buttons.ObstructionButton;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -11,14 +18,14 @@ import javafx.stage.WindowEvent;
 /**
  * GUI to implement the TrainDisplay interface.
  * 
- * @author Jim Sawicki TODO: MARK UNTIL CONFIRMED FINISHED
+ * @author Jim Sawicki, Sharon Shin TODO: MARK UNTIL CONFIRMED FINISHED
  */
 
 public class GUIDisplay extends Application implements TrainDisplay {
 
-	GUIButton AtStationButton;
-	GUIButton ApproachingButton;
-	GUIButton ObstructionButton;
+	private GUIButton AtStationButton;
+	private GUIButton ApproachingButton;
+	private GUIButton ObstructionButton;
 	private Text trainStatus = new Text("Train is stopped and doors are closed"); // TODO The train will need to "start"
 																					// somewhere.
 	private Text timeValue = new Text(" Fix Me "); // TODO Fix me
@@ -29,6 +36,23 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		ObstructionButton = new ObstructionButton("Obstruction");
+		ApproachingButton = new ApproachingStationButton("Approaching Station");
+		AtStationButton = new ArrivedAtStationButton("Arrived at Station");
+		
+		GridPane pane = new GridPane();
+		pane.setHgap(10);
+		pane.setVgap(10);
+		pane.setPadding(new Insets(10, 10, 10, 10));
+		pane.add(trainStatus, 0, 0);
+		pane.add(timeValue, 1, 0);
+		pane.add(AtStationButton, 2, 0);
+		pane.add(ApproachingButton, 3, 0);
+		pane.add(ObstructionButton, 4, 0);
+		Scene scene = new Scene(pane);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("TrainGUI");
+		primaryStage.show();
+		
 		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent window) {
