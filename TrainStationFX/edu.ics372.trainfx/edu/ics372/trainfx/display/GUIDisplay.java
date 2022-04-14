@@ -65,7 +65,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 */
 	@Override
 	public void showTimeLeft(int time) {
-
+		timeValue.setText(" " + time);
 	}
 
 	/**
