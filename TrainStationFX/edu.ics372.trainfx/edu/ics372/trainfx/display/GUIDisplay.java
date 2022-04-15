@@ -50,6 +50,10 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		Scene scene = new Scene(pane);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("TrainGUI");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		primaryStage.show();
 		showStoppedDoorClosedBeforeAcceleratingState();
 		TrainContext.getInstance().setDisplay(this);
