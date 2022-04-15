@@ -44,8 +44,7 @@ public class TrainContext {
 	 * state. Adds the object as an observable for clock
 	 */
 	public void initialize() {
-		currentState = StoppedDoorClosedBeforeAcceleratingState.getInstance();
-		currentState.enter();
+		instance.changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
 	}
 
 	/**
@@ -69,12 +68,19 @@ public class TrainContext {
 	public void stoppedDoorsOpening() {
 		currentState.stoppedDoorsOpening();
 	}
-
+	
 	/**
 	 * Process doors opened request
 	 */
 	public void stoppedDoorsOpened() {
 		currentState.stoppedDoorsOpened();
+	}
+
+	/**
+	 * Process door close request
+	 */
+	public void onDoorClose() {
+		currentState.onDoorClose();
 	}
 
 	/**
@@ -88,12 +94,57 @@ public class TrainContext {
 	}
 
 	/**
-	 * Displays the text to indicate the train has entered the
-	 * stoppedDoorClosedBeforeAcceleratingState.
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
 	 */
-	public void showStoppedDoorClosedBeforeAcceleratingState() {
-		display.showStoppedDoorClosedBeforeAcceleratingState();
+	public void showLightOn() {
+		display.showLightOn();
+	}
 
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showLightOff() {
+		display.showLightOff();
+	}
+
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showCooking() {
+		display.showCooking();
+	}
+
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showNotCooking() {
+		display.showNotCooking();
+	}
+
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showDoorOpened() {
+		display.showDoorOpened();
+	}
+
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showDoorClosed() {
+		display.showDoorClosed();
 	}
 
 }
