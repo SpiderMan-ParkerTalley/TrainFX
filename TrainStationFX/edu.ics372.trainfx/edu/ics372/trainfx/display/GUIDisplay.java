@@ -4,6 +4,7 @@ import edu.ics372.trainfx.buttons.ApproachingStationButton;
 import edu.ics372.trainfx.buttons.ArrivedAtStationButton;
 import edu.ics372.trainfx.buttons.GUIButton;
 import edu.ics372.trainfx.buttons.ObstructionButton;
+import edu.ics372.trainfx.states.TrainContext;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -24,9 +25,9 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	private GUIButton AtStationButton;
 	private GUIButton ApproachingButton;
 	private GUIButton ObstructionButton;
-	private Text trainStatus = new Text("Train is stopped and doors are closed"); // TODO The train will need to "start"
-																					// somewhere.
-	private Text timeValue = new Text(" Fix Me "); // TODO Fix me
+	private Text trainStatus = new Text("Initial"); // TODO The train will need to "start"
+													// somewhere.
+	private Text timeValue = new Text(" FIX ME "); // TODO Fix me
 
 	/**
 	 * Sets up the interface
@@ -50,7 +51,9 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("TrainGUI");
 		primaryStage.show();
-
+		showStoppedDoorClosedBeforeAcceleratingState();
+		TrainContext.getInstance().setDisplay(this);
+		TrainContext.getInstance().initialize();
 		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent window) {

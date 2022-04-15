@@ -6,83 +6,48 @@ package edu.ics372.trainfx.states;
  */
 public abstract class TrainState {
 	/**
-	   * Initializes the state
-	   */
-	  public abstract void enter();
+	 * Initializes the state
+	 */
+	public abstract void enter();
 
-	  /**
-	   * Performs any necessary clean up while leaving the state
-	   */
-	  public abstract void leave();
+	/**
+	 * Performs any necessary clean up while leaving the state
+	 */
+	public abstract void leave();
 
-	  /**
-	   * Processes acceleration.
-	   */
-	  public void accelerating() {
+	/**
+	 * Process obstruction event.
+	 */
+	public void onObstruction() {
 
-	  }
+	}
 
-	  /**
-	   * Process deceleration
-	   */
-	  public void decelerating() {
+	/**
+	 * Process deceleration signal
+	 */
+	public void onDecelerationSignal() {
 
-	  }
+	}
 
-	  /**
-	   * Process when train reaches full speed
-	   */
-	  public void fullSpeed() {
+	/**
+	 * Process station arrival signal.
+	 */
+	public void onStationArrivalSignal() {
 
-	  }
-	  
-	  /*
-	   * Processes the doors closed before accelerating
-	   */
-	  public void stoppedDoorClosedBeforeAccelerating() {
-		  
-	  }
-	  
-	  /*
-	   * Processes the doors closed before opening
-	   */
-	  public void stoppedDoorClosedBeforeOpening() {
-		  
-	  }
-	  
-	  /*
-	   * Processes the doors closing
-	   */
-	  public void stoppedDoorsClosing() {
-		  
-	  }
-	  
-	  /*
-	   * Processes the doors opening
-	   */
-	  public void stoppedDoorsOpening() {
-		  
-	  }
-	  
-	  /*
-	   * processes the doors open
-	   */
-	  public void stoppedDoorsOpen() {
-		  
-	  }
-	  
-	  /**
-	   * Process clock tick Generates the timer runs out event
-	   */
-	  public void onTimerTick(int timerValue) {
+	}
 
-	  }
+	/**
+	 * Process clock tick Generates the timer runs out event
+	 */
+	public void onTimerTick(int timerValue) {
 
-	  /**
-	   * Process clock ticks Generates the timer runs out event
-	   */
-	  public void onTimerRunsOut() {
+	}
 
-	  }
+	/**
+	 * Process clock ticks Generates the timer runs out event
+	 */
+	public void onTimerRunsOut() {
+
+	}
 
 }
