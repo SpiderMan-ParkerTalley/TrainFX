@@ -33,14 +33,16 @@ public class AcceleratingState extends TrainState implements Notifiable {
 
 	@Override
 	public void OnTimerTick(int timerValue) {
-		// TODO Auto-generated method stub
+		TrainContext.getInstance().showTimeLeft(timerValue);
 
 	}
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
-
+		System.out.println("ENTERED ACCEL"); // TODO debug
+		timer = new Timer(this, 6);
+		TrainContext.getInstance().showAcceleratingState();
+		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
 	@Override

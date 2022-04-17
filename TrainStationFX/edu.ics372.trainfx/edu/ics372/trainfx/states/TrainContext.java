@@ -96,4 +96,9 @@ public class TrainContext {
 
 	}
 
+	public void showAcceleratingState() {
+		display.showAcceleratingState();
+
+	}
+
 }

@@ -22,6 +22,11 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	}
 
+	/**
+	 * Returns the singleton instance.
+	 * 
+	 * @return instance of the class
+	 */
 	public static StoppedDoorClosedBeforeAcceleratingState getInstance() {
 		if (instance == null) {
 			instance = new StoppedDoorClosedBeforeAcceleratingState();
@@ -46,5 +51,13 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
+	}
+
+	@Override
+	public void onTimerRunsOut() {
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(AcceleratingState.getInstance());
 	}
 }
