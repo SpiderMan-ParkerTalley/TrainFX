@@ -147,4 +147,29 @@ public class TrainContext {
 		display.showDoorClosed();
 	}
 
+	public void showAcceleratingState() {
+		display.showAcceleratingState();
+
+	}
+
+	/**
+	 * Displays the text to indicate the train has entered the FullSpeedState.
+	 */
+	public void showFulSpeedState() {
+		display.showFullSpeedState();
+
+	}
+
+	/**
+	 * Displays the text to indicate the train has entered the DeceleratingState.
+	 */
+	public void showDeceleratingState() {
+		display.showDeceleratingState();
+
+	}
+
+	public void onDecelerationSignal() {
+		currentState.onDecelerationSignal();
+	}
+
 }
