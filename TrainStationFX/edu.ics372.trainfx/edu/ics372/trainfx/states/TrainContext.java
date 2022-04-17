@@ -44,7 +44,7 @@ public class TrainContext {
 	 * state. Adds the object as an observable for clock
 	 */
 	public void initialize() {
-		currentState = AcceleratingState.getInstance();
+		currentState = StoppedDoorClosedBeforeAcceleratingState.getInstance();
 		currentState.enter();
 	}
 
@@ -76,19 +76,12 @@ public class TrainContext {
 	public void stoppedDoorsOpened() {
 		currentState.stoppedDoorsOpened();
 	}
-	
-	/*
-	 * Processes the deceleration signal
-	 */
-	public void onDecelerationSignal() {
-		currentState.onDecelerationSignal();
-	}
 
 	/**
 	 * This invokes the right method of the display. This helps protect the states
 	 * from changes to the way the system utilizes the state changes.
 	 * 
-	 * @param time time left
+	 * @param time time left for cooking
 	 */
 	public void showTimeLeft(int time) {
 		display.showTimeLeft(time);
@@ -102,9 +95,6 @@ public class TrainContext {
 		display.showStoppedDoorClosedBeforeAcceleratingState();
 
 	}
-	/*
-	 * Displays the text to indicate the train has entered the accelerating state.
-	 */
 
 	public void showAcceleratingState() {
 		display.showAcceleratingState();
@@ -126,4 +116,9 @@ public class TrainContext {
 		display.showDeceleratingState();
 
 	}
+
+	public void onDecelerationSignal() {
+		currentState.onDecelerationSignal();
+	}
+
 }
