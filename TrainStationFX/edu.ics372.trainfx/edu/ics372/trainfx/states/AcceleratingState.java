@@ -46,6 +46,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		timer.stop();
 		timer = null;
 		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
+		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 	/**

@@ -30,6 +30,11 @@ public class FullSpeedState extends TrainState implements Notifiable {
 
 	}
 
+	public void onDecelerationSignal() {
+		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
+		TrainContext.getInstance().showTimeLeft(0);
+	}
+
 	@Override
 	public void enter() {
 		System.out.println("FULLSPEED"); // TODO debug

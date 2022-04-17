@@ -109,4 +109,16 @@ public class TrainContext {
 
 	}
 
+	/**
+	 * Displays the text to indicate the train has entered the DeceleratingState.
+	 */
+	public void showDeceleratingState() {
+		display.showDeceleratingState();
+
+	}
+
+	public void onDecelerationSignal() {
+		currentState.onDecelerationSignal();
+	}
+
 }
