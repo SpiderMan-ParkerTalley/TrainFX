@@ -37,6 +37,33 @@ public class AcceleratingState extends TrainState implements Notifiable {
 
 	}
 
+	/**
+	 * When the deceleration event is triggered, AcceleratingState goes to
+	 * DeceleratingState() instead of FullSpeedState().
+	 */
+	@Override
+	public void onDecelerationSignal() {
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
+	}
+
+	/**
+	 * When the timer runs out, AcceleratingState transitions to FullSpeedState.
+	 */
+	@Override
+	public void onTimerRunsOut() {
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().changeState(FullSpeedState.getInstance());
+		TrainContext.getInstance().showTimeLeft(0);
+	}
+
+	/**
+	 * The AcceleratingState is entered from the StoppedBeforeAcceleratingState.
+	 * Timer is instantiated and set to 6 seconds and the display is updated to show
+	 * the state and time left in the state.
+	 */
 	@Override
 	public void enter() {
 		System.out.println("ENTERED ACCEL"); // TODO debug
