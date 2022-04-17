@@ -30,6 +30,12 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		}
 		return instance;
 	}
+	
+	public void onAccelerating() {
+		//I'm not sure if we are counting up or down for the acceleration? Maybe it doesn't matter here...
+		timer.addTimeValue(6);
+		
+	}
 
 	@Override
 	public void OnTimerTick(int timerValue) {

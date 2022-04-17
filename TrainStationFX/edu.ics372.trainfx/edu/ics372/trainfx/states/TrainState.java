@@ -18,14 +18,14 @@ public abstract class TrainState {
 	  /**
 	   * Processes acceleration.
 	   */
-	  public void accelerating() {
+	  public void onAccelerating() {
 
 	  }
 
 	  /**
 	   * Process deceleration
 	   */
-	  public void decelerating() {
+	  public void onDecelerationSignal() {
 
 	  }
 
@@ -67,7 +67,7 @@ public abstract class TrainState {
 	  /*
 	   * processes the doors open
 	   */
-	  public void stoppedDoorsOpen() {
+	  public void stoppedDoorsOpened() {
 		  
 	  }
 	  

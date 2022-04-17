@@ -1,9 +1,8 @@
 package edu.ics372.trainfx.states;
 
-public class StoppedDoorClosedBeforeAcceleratingState {
+import edu.ics372.trainfx.timer.Notifiable;
+import edu.ics372.trainfx.timer.Timer;
 
-<<<<<<< HEAD
-=======
 /**
  * Represents the train state when it is stopped, the doors are already closed,
  * and it is waiting to begin the acceleration state.
@@ -61,5 +60,4 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(AcceleratingState.getInstance());
 	}
->>>>>>> jim_sawicki
 }
