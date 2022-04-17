@@ -24,7 +24,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	private GUIButton AtStationButton;
 	private GUIButton ApproachingButton;
 	private GUIButton ObstructionButton;
-	private Text trainStatus = new Text("Train is stopped and doors are closed"); // TODO The train will need to "start"
+	private Text trainStatus = new Text("Initial"); // TODO The train will need to "start"
 																					// somewhere.
 	private Text timeValue = new Text(" Fix Me "); // TODO Fix me
 

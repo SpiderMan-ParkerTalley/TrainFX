@@ -44,7 +44,8 @@ public class TrainContext {
 	 * state. Adds the object as an observable for clock
 	 */
 	public void initialize() {
-		instance.changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
+		currentState = AcceleratingState.getInstance();
+		currentState.enter();
 	}
 
 	/**
@@ -68,84 +69,42 @@ public class TrainContext {
 	public void stoppedDoorsOpening() {
 		currentState.stoppedDoorsOpening();
 	}
-	
+
 	/**
 	 * Process doors opened request
 	 */
 	public void stoppedDoorsOpened() {
 		currentState.stoppedDoorsOpened();
 	}
-
-	/**
-	 * Process door close request
+	
+	/*
+	 * Processes the deceleration signal
 	 */
-	public void onDoorClose() {
-		currentState.onDoorClose();
+	public void onDecelerationSignal() {
+		currentState.onDecelerationSignal();
 	}
 
 	/**
 	 * This invokes the right method of the display. This helps protect the states
 	 * from changes to the way the system utilizes the state changes.
 	 * 
-	 * @param time time left for cooking
+	 * @param time time left
 	 */
 	public void showTimeLeft(int time) {
 		display.showTimeLeft(time);
 	}
 
 	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
+	 * Displays the text to indicate the train has entered the
+	 * stoppedDoorClosedBeforeAcceleratingState.
 	 */
-	public void showLightOn() {
-		display.showLightOn();
-	}
+	public void showStoppedDoorClosedBeforeAcceleratingState() {
+		display.showStoppedDoorClosedBeforeAcceleratingState();
 
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
-	 */
-	public void showLightOff() {
-		display.showLightOff();
 	}
-
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
+	/*
+	 * Displays the text to indicate the train has entered the accelerating state.
 	 */
-	public void showCooking() {
-		display.showCooking();
-	}
-
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
-	 */
-	public void showNotCooking() {
-		display.showNotCooking();
-	}
-
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
-	 */
-	public void showDoorOpened() {
-		display.showDoorOpened();
-	}
-
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
-	 */
-	public void showDoorClosed() {
-		display.showDoorClosed();
-	}
 
 	public void showAcceleratingState() {
 		display.showAcceleratingState();
@@ -167,9 +126,4 @@ public class TrainContext {
 		display.showDeceleratingState();
 
 	}
-
-	public void onDecelerationSignal() {
-		currentState.onDecelerationSignal();
-	}
-
 }
