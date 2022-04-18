@@ -60,10 +60,8 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onTimerRunsOut() {
-		timer.stop();
-		timer = null;
-		TrainContext.getInstance().changeState(FullSpeedState.getInstance());
 		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(FullSpeedState.getInstance());
 	}
 
 	/**
@@ -81,8 +79,10 @@ public class AcceleratingState extends TrainState implements Notifiable {
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
-
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().showFullSpeedState();
+		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 }

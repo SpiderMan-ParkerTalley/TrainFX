@@ -39,7 +39,7 @@ public class FullSpeedState extends TrainState implements Notifiable {
 	public void enter() {
 		System.out.println("FULLSPEED"); // TODO debug
 		TrainContext.getInstance().showTimeLeft(0);
-		TrainContext.getInstance().showFulSpeedState();
+		TrainContext.getInstance().showFullSpeedState();
 		;
 
 	}

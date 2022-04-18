@@ -104,7 +104,7 @@ public class TrainContext {
 	/**
 	 * Displays the text to indicate the train has entered the FullSpeedState.
 	 */
-	public void showFulSpeedState() {
+	public void showFullSpeedState() {
 		display.showFullSpeedState();
 
 	}
