@@ -52,15 +52,23 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("TrainGUI");
 		primaryStage.show();
-		showStoppedDoorClosedBeforeAcceleratingState();
-		TrainContext.getInstance().setDisplay(this);
-		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
+		initialState();
 		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent window) {
 				System.exit(0);
 			}
 		});
+
+	}
+
+	/**
+	 * Sets the initial state of the GUI.
+	 */
+	private void initialState() {
+		showStoppedDoorClosedBeforeAcceleratingState();
+		TrainContext.getInstance().setDisplay(this);
+		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
 
 	}
 
