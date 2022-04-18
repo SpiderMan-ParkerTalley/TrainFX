@@ -60,10 +60,6 @@ public class TrainContext {
 		currentState.enter();
 	}
 
-	public void onAccelerating() {
-		currentState.onAccelerating();
-	}
-
 	/**
 	 * Process doors opening request
 	 */
@@ -105,6 +101,9 @@ public class TrainContext {
 
 	}
 
+	/**
+	 * Shows that the train is in the AcceleratingState().
+	 */
 	public void showAcceleratingState() {
 		display.showAcceleratingState();
 

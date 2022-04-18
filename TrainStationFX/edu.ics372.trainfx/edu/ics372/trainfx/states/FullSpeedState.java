@@ -35,7 +35,6 @@ public class FullSpeedState extends TrainState implements Notifiable {
 	// TODO No timer ticking for this, since not indicated in PDF?
 	@Override
 	public void OnTimerTick(int timerValue) {
-		// TODO Auto-generated method stub
 
 	}
 
