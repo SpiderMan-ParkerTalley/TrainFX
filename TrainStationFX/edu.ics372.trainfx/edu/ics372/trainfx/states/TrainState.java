@@ -100,4 +100,8 @@ public abstract class TrainState {
 		
 	  }
 
+	  public void onArrivedAtStationSignal() {
+		
+	  }
+
 }

@@ -49,7 +49,7 @@ public class DeceleratingState extends TrainState implements Notifiable {
 
 	@Override
 	public void leave() {
-		TrainContext.getInstance().showStoppedDoorClosedBeforeOpeningState();
+		TrainContext.getInstance().stoppedDoorsClosedBeforeOpening();
 	}
 
 	@Override

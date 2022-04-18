@@ -132,6 +132,10 @@ public class TrainContext {
 	public void onApproachingStationSignal() {
 		currentState.onApproachingStationSignal();
 	}
+	
+	public void onArrivedAtStationSignal() {
+		currentState.onArrivedAtStationSignal();
+	}
 
 	public void showStoppedDoorClosedBeforeOpeningState() {
 		display.showStoppedDoorClosedBeforeOpeningState();
