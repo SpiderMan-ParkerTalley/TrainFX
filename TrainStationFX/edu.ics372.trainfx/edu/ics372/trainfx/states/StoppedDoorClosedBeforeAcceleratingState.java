@@ -34,6 +34,9 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		return instance;
 	}
 
+	/**
+	 * Sets the timer, display text, and
+	 */
 	@Override
 	public void enter() {
 		System.out.println("ENTERED SDCBA"); // TODO debug
