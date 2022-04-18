@@ -49,7 +49,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 * DeceleratingState() instead of FullSpeedState().
 	 */
 	@Override
-	public void onDecelerationSignal() {
+	public void onApproachingStationSignal() {
 //		timer.stop(); //TODO going to erase this to keep it closer to the way microwave is implemented
 //		timer = null; //TODO same as above
 		TrainContext.getInstance().showTimeLeft(0);

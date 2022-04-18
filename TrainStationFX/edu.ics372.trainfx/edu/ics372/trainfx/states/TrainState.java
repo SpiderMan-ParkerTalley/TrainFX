@@ -25,7 +25,7 @@ public abstract class TrainState {
 	  /**
 	   * Process deceleration
 	   */
-	  public void onDecelerationSignal() {
+	  public void onApproachingStationSignal() {
 
 	  }
 

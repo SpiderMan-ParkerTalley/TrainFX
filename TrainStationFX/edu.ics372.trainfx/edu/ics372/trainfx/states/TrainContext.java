@@ -128,7 +128,7 @@ public class TrainContext {
 	}
 
 	public void onDecelerationSignal() {
-		currentState.onDecelerationSignal();
+		currentState.onApproachingStationSignal();
 	}
 	
 	
