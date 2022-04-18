@@ -30,11 +30,12 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		}
 		return instance;
 	}
-	
+
 	public void onAccelerating() {
-		//I'm not sure if we are counting up or down for the acceleration? Maybe it doesn't matter here...
+		// I'm not sure if we are counting up or down for the acceleration? Maybe it
+		// doesn't matter here...
 		timer.addTimeValue(6);
-		
+
 	}
 
 	@Override
@@ -49,10 +50,11 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onDecelerationSignal() {
-		timer.stop();
-		timer = null;
-		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
+//		timer.stop(); //TODO going to erase this to keep it closer to the way microwave is implemented
+//		timer = null; //TODO same as above
 		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
+
 	}
 
 	/**
