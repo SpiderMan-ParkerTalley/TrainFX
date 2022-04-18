@@ -4,7 +4,7 @@ import edu.ics372.trainfx.timer.Notifiable;
 import edu.ics372.trainfx.timer.Timer;
 
 /*
- * @author Cristian Zendejas
+ * @author Cristian Zendejas and Sharon Shin
  * 
  * Represents the accelerating state of the train. 
  */

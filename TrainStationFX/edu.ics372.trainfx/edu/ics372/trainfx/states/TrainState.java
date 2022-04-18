@@ -85,4 +85,19 @@ public abstract class TrainState {
 
 	  }
 
+	  /**
+	   * Processes stopping the train before opening the doors after arriving 
+	   * at a station.
+	   */
+	  public void showStoppedDoorClosedBeforeOpeningState() {
+			
+	  }
+
+	  /**
+	   * Processes stopped train's doors opening at a station.
+	   */
+	  public void showDoorsOpeningState() {
+		
+	  }
+
 }

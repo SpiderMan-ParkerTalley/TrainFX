@@ -7,7 +7,7 @@ import edu.ics372.trainfx.timer.Timer;
  * Represents the train state when it is stopped, the doors are already closed,
  * and it is waiting to begin the acceleration state.
  * 
- * @author Jim Sawicki
+ * @author Jim Sawicki and Sharon Shin
  *
  */
 public class StoppedDoorClosedBeforeAcceleratingState extends TrainState implements Notifiable {
@@ -34,9 +34,6 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		return instance;
 	}
 
-	/**
-	 * Sets the timer, display text, and
-	 */
 	@Override
 	public void enter() {
 		System.out.println("ENTERED SDCBA"); // TODO debug
@@ -47,7 +44,10 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().showAcceleratingState();
+		TrainContext.getInstance().showTimeLeft(0);
 
 	}
 
@@ -58,8 +58,6 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	@Override
 	public void onTimerRunsOut() {
-		timer.stop();
-		timer = null;
 		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(AcceleratingState.getInstance());
 	}

@@ -1,5 +1,6 @@
 package edu.ics372.trainfx.states;
 
+
 import edu.ics372.trainfx.display.TrainDisplay;
 
 /*
@@ -46,6 +47,7 @@ public class TrainContext {
 	public void initialize() {
 		currentState = StoppedDoorClosedBeforeAcceleratingState.getInstance();
 		currentState.enter();
+		
 	}
 
 	/**
@@ -75,6 +77,14 @@ public class TrainContext {
 	 */
 	public void stoppedDoorsOpened() {
 		currentState.stoppedDoorsOpened();
+	}
+	
+	/**
+	 * Processed stopped train before doors opening request
+	 */
+	
+	public void stoppedDoorsClosedBeforeOpening() {
+		currentState.stoppedDoorClosedBeforeOpening();
 	}
 
 	/**
@@ -119,6 +129,16 @@ public class TrainContext {
 
 	public void onDecelerationSignal() {
 		currentState.onDecelerationSignal();
+	}
+	
+	
+	public void showStoppedDoorClosedBeforeOpeningState() {
+		display.showStoppedDoorClosedBeforeOpeningState();
+	}
+
+	public void showDoorsOpeningState() {
+		display.showStoppedDoorsOpeningState();
+		
 	}
 
 }

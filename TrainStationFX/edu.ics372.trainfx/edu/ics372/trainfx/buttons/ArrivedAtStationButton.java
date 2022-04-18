@@ -1,5 +1,6 @@
 package edu.ics372.trainfx.buttons;
 
+import edu.ics372.trainfx.states.TrainContext;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -17,7 +18,7 @@ public class ArrivedAtStationButton extends GUIButton implements EventHandler<Ac
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		// TODO: MARK UNTIL CONFIRMED FINISHED
+		TrainContext.getInstance().showStoppedDoorClosedBeforeOpeningState();
 		
 	}
 

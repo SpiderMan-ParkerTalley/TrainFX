@@ -2,6 +2,11 @@ package edu.ics372.trainfx.states;
 
 import edu.ics372.trainfx.timer.Notifiable;
 
+/**
+ * 
+ * @author Sharon Shin
+ *
+ */
 public class FullSpeedState extends TrainState implements Notifiable {
 	private static FullSpeedState instance;
 
@@ -17,13 +22,14 @@ public class FullSpeedState extends TrainState implements Notifiable {
 	 * 
 	 * @return the instance of FullSpeedState
 	 */
-	public static TrainState getInstance() {
+	public static FullSpeedState getInstance() {
 		if (instance == null) {
 			instance = new FullSpeedState();
 		}
 		return instance;
 	}
 
+	//TODO No timer ticking for this, since not indicated in PDF?
 	@Override
 	public void OnTimerTick(int timerValue) {
 		// TODO Auto-generated method stub
@@ -46,8 +52,7 @@ public class FullSpeedState extends TrainState implements Notifiable {
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
-
+		TrainContext.getInstance().showDeceleratingState();
 	}
 
 }
