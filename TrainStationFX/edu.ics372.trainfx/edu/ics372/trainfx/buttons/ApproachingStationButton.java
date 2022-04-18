@@ -20,7 +20,7 @@ public class ApproachingStationButton extends GUIButton implements EventHandler<
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		TrainContext.getInstance().onDecelerationSignal();
+		TrainContext.getInstance().onApproachingStationSignal();
 
 	}
 
