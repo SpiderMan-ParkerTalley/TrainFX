@@ -1,11 +1,9 @@
 package edu.ics372.trainfx.display;
 
-
 import edu.ics372.trainfx.buttons.ApproachingStationButton;
 import edu.ics372.trainfx.buttons.ArrivedAtStationButton;
 import edu.ics372.trainfx.buttons.GUIButton;
 import edu.ics372.trainfx.buttons.ObstructionButton;
-import edu.ics372.trainfx.states.StoppedDoorClosedBeforeAcceleratingState;
 import edu.ics372.trainfx.states.TrainContext;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -27,9 +25,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	private GUIButton AtStationButton;
 	private GUIButton ApproachingButton;
 	private GUIButton ObstructionButton;
-	private Text trainStatus = new Text("Stopped Door Closed Before Accelerating"); // TODO The train will need to "start"
-													// somewhere.
-	private Text timeValue = new Text("3"); // TODO Fix me
+	private Text trainStatus = new Text("Stopped Door Closed Before Accelerating");
+	private Text timeValue = new Text("3");
 
 	/**
 	 * Sets up the interface
@@ -63,19 +60,15 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	}
 
-	
 	/**
 	 * Sets the initial state of the GUI.
 	 */
-
 	private void initialState() {
 		showStoppedDoorClosedBeforeAcceleratingState();
 		TrainContext.getInstance().setDisplay(this);
 		TrainContext.getInstance().initialize();
-
 	}
 
-	
 	/**
 	 * Shows the time remaining
 	 */
