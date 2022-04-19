@@ -34,6 +34,9 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		return instance;
 	}
 
+	/**
+	 * Method for entering the state.
+	 */
 	@Override
 	public void enter() {
 		System.out.println("ENTERED SDCBA"); // TODO debug
@@ -51,6 +54,9 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	}
 
+	/**
+	 * This is called in the Timer and displays the time left.
+	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);

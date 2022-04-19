@@ -1,18 +1,13 @@
 package edu.ics372.trainfx.states;
 
-import edu.ics372.trainfx.timer.Notifiable;
-import edu.ics372.trainfx.timer.Timer;
-
 /**
  * 
  * @author Sharon Shin
  *
  */
 
-//TODO No amount of deceleration time specified in PDF. Do we need to implement timer?
-public class DeceleratingState extends TrainState implements Notifiable {
+public class DeceleratingState extends TrainState {
 	private static DeceleratingState instance;
-	private Timer timer;
 
 	/**
 	 * Singleton Pattern
@@ -20,7 +15,6 @@ public class DeceleratingState extends TrainState implements Notifiable {
 	private DeceleratingState() {
 
 	}
-	
 
 	/**
 	 * Returns the static singleton instance
@@ -38,24 +32,25 @@ public class DeceleratingState extends TrainState implements Notifiable {
 		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeOpeningState.getInstance());
 		TrainContext.getInstance().showTimeLeft(0);
 	}
-	
+
+	/**
+	 * Method to enter the deceleration state. Called in the changeState method of
+	 * trainContext.
+	 */
 	@Override
 	public void enter() {
 		System.out.println("ENTERED DECEL"); // TODO debug
-		timer = new Timer(this, 0);
 		TrainContext.getInstance().showDeceleratingState();
-		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
+		TrainContext.getInstance().showTimeLeft(0);
 	}
 
+	/**
+	 * Method to leave the deceleration state. Called in the changeState method of
+	 * trainContext.
+	 */
 	@Override
 	public void leave() {
 		TrainContext.getInstance().stoppedDoorsClosedBeforeOpening();
-	}
-
-	@Override
-	public void OnTimerTick(int timerValue) {
-		// TODO No timer needed for this?
-
 	}
 
 }
