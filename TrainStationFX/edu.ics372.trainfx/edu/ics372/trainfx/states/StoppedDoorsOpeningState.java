@@ -37,20 +37,21 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 	public void enter() {
 		System.out.println("ENTERED SDOS"); // TODO debug
 		timer = new Timer(this, 4);
-		// TODO finish
-
+		TrainContext.getInstance().showDoorsOpeningState();
+		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
-
+		timer.stop();
+		timer = null;
+		TrainContext.getInstance().stoppedDoorsOpened();
+		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 	@Override
 	public void OnTimerTick(int timerValue) {
-		// TODO Auto-generated method stub
-
+		TrainContext.getInstance().showTimeLeft(timerValue);
 	}
 
 }

@@ -92,12 +92,33 @@ public abstract class TrainState {
 	  public void showStoppedDoorClosedBeforeOpeningState() {
 			
 	  }
+	  
+	  /*
+	   * Processes the train stopped and closing the doors after being open
+	   */
+	  public void showStoppedDoorClosingState() {
+		  
+	  }
+	  
+	  /*
+	   * Processes the trains doors closed before accelerating
+	   */
+	  public void showStoppedDoorClosedBeforeAcceleratingState() {
+		  
+	  }
 
 	  /**
 	   * Processes stopped train's doors opening at a station.
 	   */
 	  public void showDoorsOpeningState() {
 		
+	  }
+	  
+	  /*
+	   * Processes stopped train's doors open at a station.
+	   */
+	  public void showStoppedDoorsOpenState() {
+		  
 	  }
 
 	  public void onArrivedAtStationSignal() {

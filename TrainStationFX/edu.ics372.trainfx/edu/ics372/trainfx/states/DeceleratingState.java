@@ -1,7 +1,7 @@
 package edu.ics372.trainfx.states;
 
 /**
- * 
+ *
  * @author Sharon Shin
  *
  */
@@ -18,7 +18,7 @@ public class DeceleratingState extends TrainState {
 
 	/**
 	 * Returns the static singleton instance
-	 * 
+	 *
 	 * @return the State
 	 */
 	public static DeceleratingState getInstance() {
@@ -51,6 +51,15 @@ public class DeceleratingState extends TrainState {
 	@Override
 	public void leave() {
 		TrainContext.getInstance().stoppedDoorsClosedBeforeOpening();
+	}
+
+	@Override
+	public void OnTimerTick(int timerValue) {
+		// TODO No timer needed for this?
+		//Cristian: The project doc doesn't say anything about a time span for deceleration.
+		//SO I think it's fine it doesn't have one even thought it's a little weird not seeing
+		//the timer countdown.
+
 	}
 
 }

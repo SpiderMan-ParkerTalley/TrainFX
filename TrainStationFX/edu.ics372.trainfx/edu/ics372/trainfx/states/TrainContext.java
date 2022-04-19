@@ -124,6 +124,21 @@ public class TrainContext {
 		display.showDeceleratingState();
 
 	}
+	
+	/*Displays the text to indicate the train has entered the StoppedDoorsClosingState
+	 * 
+	 */
+	public void showStoppedDoorsClosingState() {
+		display.showStoppedDoorsClosingState();
+	}
+	
+	/*
+	 * Displays the text to indicate the train has entered the StoppedDoorsOpenState
+	 */
+	public void showStoppedDoorsOpenState() {
+		display.showStoppedDoorsOpenState();
+	}
+	
 
 	/**
 	 * Used for the Approaching Station signal.
