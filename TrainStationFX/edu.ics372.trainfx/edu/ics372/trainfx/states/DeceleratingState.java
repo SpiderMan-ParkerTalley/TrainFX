@@ -55,6 +55,9 @@ public class DeceleratingState extends TrainState implements Notifiable {
 	@Override
 	public void OnTimerTick(int timerValue) {
 		// TODO No timer needed for this?
+		//Cristian: The project doc doesn't say anything about a time span for deceleration. 
+		//SO I think it's fine it doesn't have one even thought it's a little weird not seeing
+		//the timer countdown.
 
 	}
 
