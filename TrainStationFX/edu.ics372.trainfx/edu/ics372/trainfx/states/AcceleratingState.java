@@ -31,6 +31,9 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		return instance;
 	}
 
+	/**
+	 * This is called in the Timer and displays the time left.
+	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
@@ -70,11 +73,14 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
+	/**
+	 * Called during the changeState call in trainContext. Terminates the timer and
+	 * sets the time display indicator to 0.
+	 */
 	@Override
 	public void leave() {
 		timer.stop();
 		timer = null;
-		TrainContext.getInstance().showFullSpeedState();
 		TrainContext.getInstance().showTimeLeft(0);
 	}
 

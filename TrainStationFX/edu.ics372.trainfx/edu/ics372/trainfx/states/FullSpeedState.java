@@ -1,7 +1,5 @@
 package edu.ics372.trainfx.states;
 
-import edu.ics372.trainfx.timer.Notifiable;
-
 /**
  * This is the fullSpeed state, indicating that the train is done accelerating
  * and is now moving at its full speed. This state is exited only in the event
@@ -10,7 +8,7 @@ import edu.ics372.trainfx.timer.Notifiable;
  * @author Sharon Shin an James Sawicki
  *
  */
-public class FullSpeedState extends TrainState implements Notifiable {
+public class FullSpeedState extends TrainState {
 	private static FullSpeedState instance;
 
 	/**
@@ -32,12 +30,6 @@ public class FullSpeedState extends TrainState implements Notifiable {
 		return instance;
 	}
 
-	// TODO No timer ticking for this, since not indicated in PDF?
-	@Override
-	public void OnTimerTick(int timerValue) {
-
-	}
-
 	/**
 	 * At full speed, the train begins to decelerate once the approaching station
 	 * signal is received.
@@ -47,6 +39,10 @@ public class FullSpeedState extends TrainState implements Notifiable {
 		TrainContext.getInstance().showTimeLeft(0);
 	}
 
+	/**
+	 * Method for when the train enters the full speed state. Time is shown as 0 and
+	 * the state of the train is indicated in the display.
+	 */
 	@Override
 	public void enter() {
 		System.out.println("FULLSPEED"); // TODO debug
@@ -56,6 +52,9 @@ public class FullSpeedState extends TrainState implements Notifiable {
 
 	}
 
+	/**
+	 * This method is called when the changeState method in trainContext is called.
+	 */
 	@Override
 	public void leave() {
 		TrainContext.getInstance().showDeceleratingState();
