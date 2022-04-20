@@ -3,7 +3,7 @@ package edu.ics372.trainfx.states;
 /**
  * Abstract class for all states
  * 
- * @author Cristian Zendejas and Parker Talley
+ * @author Cristian Zendejas, Sharon Shin, and Parker Talley
  */
 public abstract class TrainState {
 	  /**
