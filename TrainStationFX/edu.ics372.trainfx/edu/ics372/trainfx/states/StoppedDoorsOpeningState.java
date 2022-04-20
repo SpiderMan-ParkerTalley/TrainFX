@@ -36,17 +36,16 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 	public void enter() {
 		System.out.println("Entering: Stopped; Doors opening state..."); // TODO debug
 		// Check if the door has been obstructed to close already.
-		if(StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
+		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
 			System.out.println("Doors were NOT obstructed.");
 			timer = new Timer(this, 4);
-		}
-		else {
-			
-			timer = new Timer(this, (int) (StoppedDoorsClosingState.getTimeSpentClosingDoors() / (4.0 / 5.0)));
+		} else {
+
+			timer = new Timer(this, (int) (StoppedDoorsClosingState.getTimeSpentClosingDoors() * (4.0 / 5.0)));
 		}
 		TrainContext.getInstance().showDoorsOpeningState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
-		
+
 	}
 
 	@Override
@@ -59,7 +58,7 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
 	}
-	
+
 	@Override
 	public void leave() {
 		System.out.println("Leaving: Stopped; Doors opening state...\n");
