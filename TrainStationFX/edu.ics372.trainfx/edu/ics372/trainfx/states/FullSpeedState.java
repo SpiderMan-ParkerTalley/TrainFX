@@ -5,23 +5,22 @@ package edu.ics372.trainfx.states;
  * and is now moving at its full speed. This state is exited only in the event
  * of the Approaching Station signal being received.
  * 
- * @author Sharon Shin an James Sawicki
+ * @author Sharon Shin, James Sawicki and Parker Talley.
  *
  */
 public class FullSpeedState extends TrainState {
 	private static FullSpeedState instance;
 
 	/**
-	 * Singleton pattern
+	 * Singleton Pattern.
 	 */
 	private FullSpeedState() {
-
 	}
 
 	/**
-	 * Returns the singleton instance
+	 * Retrieves the FullSpeedState instance.
 	 * 
-	 * @return the instance of FullSpeedState
+	 * @return FullSpeedState instance.
 	 */
 	public static FullSpeedState getInstance() {
 		if (instance == null) {
@@ -36,7 +35,6 @@ public class FullSpeedState extends TrainState {
 	 */
 	public void onApproachingStationSignal() {
 		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
-		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 	/**
@@ -45,11 +43,8 @@ public class FullSpeedState extends TrainState {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("FULLSPEED"); // TODO debug
-		TrainContext.getInstance().showTimeLeft(0);
+		System.out.println("Entering: Full speed state..."); // TODO debug
 		TrainContext.getInstance().showFullSpeedState();
-		;
-
 	}
 
 	/**
@@ -57,6 +52,7 @@ public class FullSpeedState extends TrainState {
 	 */
 	@Override
 	public void leave() {
+		System.out.println("Leaving: Full speed state...\n");
 		TrainContext.getInstance().showDeceleratingState();
 	}
 

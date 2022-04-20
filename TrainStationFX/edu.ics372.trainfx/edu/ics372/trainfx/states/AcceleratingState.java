@@ -3,26 +3,25 @@ package edu.ics372.trainfx.states;
 import edu.ics372.trainfx.timer.Notifiable;
 import edu.ics372.trainfx.timer.Timer;
 
-/*
- * @author Cristian Zendejas and Sharon Shin
- * 
+/**
  * Represents the accelerating state of the train. 
+ * 
+ * @author Cristian Zendejas, Sharon Shin and Parker Talley.
  */
 public class AcceleratingState extends TrainState implements Notifiable {
 	private static AcceleratingState instance;
 	private Timer timer;
 
-	/*
-	 * private singleton for the pattern
+	/**
+	 * Singleton Pattern.
 	 */
 	private AcceleratingState() {
-
 	}
 
-	/*
-	 * Singleton
+	/**
+	 * Retrieves the AcceleratingState instance.
 	 * 
-	 * @return the instance
+	 * @return AcceleratingState instance.
 	 */
 	public static AcceleratingState getInstance() {
 		if (instance == null) {
@@ -48,7 +47,6 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	public void onApproachingStationSignal() {
 		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
-
 	}
 
 	/**
@@ -67,7 +65,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("ENTERED ACCEL"); // TODO debug
+		System.out.println("Entering: Accelerating state..."); // TODO debug
 		timer = new Timer(this, 6);
 		TrainContext.getInstance().showAcceleratingState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
@@ -79,9 +77,9 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void leave() {
+		System.out.println("Leaving: Accelerating state...\n"); // TODO debug
 		timer.stop();
 		timer = null;
-		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 }

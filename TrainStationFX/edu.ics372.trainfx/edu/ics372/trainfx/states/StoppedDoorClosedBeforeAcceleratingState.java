@@ -7,25 +7,23 @@ import edu.ics372.trainfx.timer.Timer;
  * Represents the train state when it is stopped, the doors are already closed,
  * and it is waiting to begin the acceleration state.
  * 
- * @author Jim Sawicki and Sharon Shin
+ * @author Jim Sawicki, Sharon Shin and Parker Talley.
  *
  */
 public class StoppedDoorClosedBeforeAcceleratingState extends TrainState implements Notifiable {
-
 	private static StoppedDoorClosedBeforeAcceleratingState instance;
 	private Timer timer;
 
 	/**
-	 * Singleton Pattern
+	 * Singleton Pattern.
 	 */
 	private StoppedDoorClosedBeforeAcceleratingState() {
-
 	}
 
 	/**
-	 * Returns the singleton instance.
+	 * Retrieves the StoppedDoorClosedBeforeAcceleratingState instance
 	 * 
-	 * @return instance of the class
+	 * @return StoppedDoorClosedBeforeAcceleratingState instance.
 	 */
 	public static StoppedDoorClosedBeforeAcceleratingState getInstance() {
 		if (instance == null) {
@@ -34,12 +32,11 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		return instance;
 	}
 
-	/**
-	 * Method for entering the state.
-	 */
 	@Override
 	public void enter() {
-		System.out.println("ENTERED SDCBA"); // TODO debug
+		System.out.println("Entering: Stopped; Doors Closed; Before accelerating state..."); // TODO debug
+		// Sets the time spent closing to 0; reset value for next stop.
+		StoppedDoorsClosingState.setTimeSpentClosing(0);
 		timer = new Timer(this, 3);
 		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
@@ -50,13 +47,8 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		timer.stop();
 		timer = null;
 		TrainContext.getInstance().showAcceleratingState();
-		TrainContext.getInstance().showTimeLeft(0);
-
 	}
 
-	/**
-	 * This is called in the Timer and displays the time left.
-	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
@@ -64,6 +56,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	@Override
 	public void onTimerRunsOut() {
+		System.out.println("Leaving: Stopped; Doors Closed; Before accelerating state...\n"); // TODO debug
 		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(AcceleratingState.getInstance());
 	}

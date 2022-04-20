@@ -1,25 +1,26 @@
 package edu.ics372.trainfx.states;
 
+import edu.ics372.trainfx.timer.Notifiable;
+
 /**
+ * Represents the decelerating state of the train.
  *
- * @author Sharon Shin
- *
+ * @author Sharon Shin and Parker Talley.
  */
 
 public class DeceleratingState extends TrainState {
 	private static DeceleratingState instance;
-
+	
 	/**
-	 * Singleton Pattern
+	 * Singleton Pattern.
 	 */
 	private DeceleratingState() {
-
 	}
 
 	/**
-	 * Returns the static singleton instance
+	 * Returns the static singleton instance.
 	 *
-	 * @return the State
+	 * @return DeceleratingState instance.
 	 */
 	public static DeceleratingState getInstance() {
 		if (instance == null) {
@@ -27,10 +28,9 @@ public class DeceleratingState extends TrainState {
 		}
 		return instance;
 	}
-
+	
 	public void onStationArrivedSignal() {
 		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeOpeningState.getInstance());
-		TrainContext.getInstance().showTimeLeft(0);
 	}
 
 	/**
@@ -39,17 +39,16 @@ public class DeceleratingState extends TrainState {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("ENTERED DECEL"); // TODO debug
+		System.out.println("Entering: Decelerating state..."); // TODO debug
 		TrainContext.getInstance().showDeceleratingState();
-		TrainContext.getInstance().showTimeLeft(0);
 	}
-
+	
 	/**
 	 * Method to leave the deceleration state. Called in the changeState method of
 	 * trainContext.
 	 */
 	@Override
 	public void leave() {
-		TrainContext.getInstance().stoppedDoorsClosedBeforeOpening();
+		System.out.println("Leaving: Decelerating state...\n"); // TODO debug
 	}
 }

@@ -3,26 +3,26 @@ package edu.ics372.trainfx.states;
 import edu.ics372.trainfx.timer.Notifiable;
 import edu.ics372.trainfx.timer.Timer;
 
-/*
+/**
  * Represents the doors opened state for the train
- * @author Cristian Zendejas
+ * 
+ * @author Cristian Zendejas and Parker Talley.
  */
 
 public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 	private static StoppedDoorsOpenState instance;
 	private Timer timer;
 	
-	/*
-	 * Singleton Pattern
+	/**
+	 * Singleton Pattern.
 	 */
 	private StoppedDoorsOpenState() {
-
 	}
 
 	/**
-	 * Returns the singleton instance.
+	 * Returns the StoppedDoorsOpenState instance.
 	 * 
-	 * @return instance of the class
+	 * @return StoppedDoorsOpenState instance.
 	 */
 	public static StoppedDoorsOpenState getInstance() {
 		if (instance == null) {
@@ -33,19 +33,26 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 
 	@Override
 	public void enter() {
-		System.out.println("ENTERED DOORS OPEN STATE");
-		timer = new Timer(this, 4);
+		System.out.println("Entering: Stopped; Doors open state...");
+		// Check if the door has attempted to close already.
+		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
+			System.out.println("Doors were NOT obstructed.");
+			timer = new Timer(this, 30);
+		}
+		else {
+			System.out.println("Doors were obstructed.");
+			timer = new Timer(this, 8);
+		}
 		TrainContext.getInstance().showStoppedDoorsOpenState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
+		
 	}
 
 	@Override
 	public void leave() {
+		System.out.println("Leaving: Stopped; Doors open state...\n");
 		timer.stop();
 		timer = null;
-		TrainContext.getInstance().showStoppedDoorsClosingState();
-		TrainContext.getInstance().showTimeLeft(0);
-
 	}
 
 	@Override

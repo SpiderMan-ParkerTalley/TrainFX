@@ -5,7 +5,7 @@ import edu.ics372.trainfx.timer.Timer;
 
 /**
  * 
- * @author Sharon Shin
+ * @author Sharon Shin and Parker Talley.
  *
  */
 public class StoppedDoorClosedBeforeOpeningState extends TrainState implements Notifiable{
@@ -13,16 +13,15 @@ public class StoppedDoorClosedBeforeOpeningState extends TrainState implements N
 	private Timer timer;
 
 	/**
-	 * Singleton Pattern
+	 * Singleton Pattern.
 	 */
 	private StoppedDoorClosedBeforeOpeningState() {
-
 	}
 	
 	/**
-	 * Returns the singleton instance
+	 * Retrieves the singleton instance.
 	 * 
-	 * @return the instance of FullSpeedState
+	 * @return StoppedDoorClosedBeforeOpeningState instance.
 	 */
 	public static StoppedDoorClosedBeforeOpeningState getInstance() {
 		if (instance == null) {
@@ -45,19 +44,16 @@ public class StoppedDoorClosedBeforeOpeningState extends TrainState implements N
 
 	@Override
 	public void enter() {
-		System.out.println("ENTERED STOPPED DOOR CLOSED BEFORE OPENING"); // TODO debug
+		System.out.println("Entering: Stopped; Doors closed; Before opening state..."); // TODO debug
 		timer = new Timer(this, 1);
 		TrainContext.getInstance().showStoppedDoorClosedBeforeOpeningState();
-		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
-		
+		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());	
 	}
 
 	@Override
 	public void leave() {
+		System.out.println("Leaving: Stopped; Doors closed; Before opening state...\n"); // TODO debug
 		timer.stop();
 		timer = null;
-		TrainContext.getInstance().showDoorsOpeningState();
-		TrainContext.getInstance().showTimeLeft(0);
 	}
-
 }

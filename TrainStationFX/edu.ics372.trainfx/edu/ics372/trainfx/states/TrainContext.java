@@ -2,17 +2,17 @@ package edu.ics372.trainfx.states;
 
 import edu.ics372.trainfx.display.TrainDisplay;
 
-/*
- * @author Cristian Zendejas
- * 
+/**
  * The observer for the clock and stores info for the states.
+ * 
+ * @author Cristian Zendejas and Parker Talley.
  */
 public class TrainContext {
 	private TrainDisplay display;
 	private TrainState currentState;
 	private static TrainContext instance;
 
-	/*
+	/**
 	 * TrainContext Singleton
 	 */
 	private TrainContext() {
@@ -20,8 +20,10 @@ public class TrainContext {
 		currentState = StoppedDoorClosedBeforeAcceleratingState.getInstance();
 	}
 
-	/*
-	 * Returns the instance of TrainContext
+	/**
+	 * Returns the TrainContext instance.
+	 * 
+	 * @return TrainContext instance.
 	 */
 	public static TrainContext getInstance() {
 		if (instance == null) {
@@ -33,7 +35,7 @@ public class TrainContext {
 	/**
 	 * The display could change. So we have to get the reference.
 	 * 
-	 * @param The current display object
+	 * @param The current display object.
 	 */
 	public void setDisplay(TrainDisplay display) {
 		this.display = display;
@@ -41,7 +43,7 @@ public class TrainContext {
 
 	/**
 	 * The train being stopped and doors closed before accelerating is starting
-	 * state. Adds the object as an observable for clock
+	 * state. Adds the object as an observable for clock.
 	 */
 	public void initialize() {
 		currentState = StoppedDoorClosedBeforeAcceleratingState.getInstance();
@@ -50,9 +52,9 @@ public class TrainContext {
 	}
 
 	/**
-	 * Called from the states to change the current state
+	 * Called from the states to change the current state.
 	 * 
-	 * @param nextState the next state
+	 * @param nextState the next state.
 	 */
 	public void changeState(TrainState nextState) {
 		currentState.leave();
@@ -61,21 +63,21 @@ public class TrainContext {
 	}
 
 	/**
-	 * Process doors opening request
+	 * Process doors opening request.
 	 */
 	public void stoppedDoorsOpening() {
 		currentState.stoppedDoorsOpening();
 	}
 
 	/**
-	 * Process doors opened request
+	 * Process doors opened request.
 	 */
 	public void stoppedDoorsOpened() {
 		currentState.stoppedDoorsOpened();
 	}
 
 	/**
-	 * Processed stopped train before doors opening request
+	 * Processed stopped train before doors opening request.
 	 */
 
 	public void stoppedDoorsClosedBeforeOpening() {
@@ -125,15 +127,15 @@ public class TrainContext {
 
 	}
 	
-	/*Displays the text to indicate the train has entered the StoppedDoorsClosingState
-	 * 
+	/**
+	 * Displays the text to indicate the train has entered the StoppedDoorsClosingState.
 	 */
 	public void showStoppedDoorsClosingState() {
 		display.showStoppedDoorsClosingState();
 	}
 	
 	/*
-	 * Displays the text to indicate the train has entered the StoppedDoorsOpenState
+	 * Displays the text to indicate the train has entered the StoppedDoorsOpenState.
 	 */
 	public void showStoppedDoorsOpenState() {
 		display.showStoppedDoorsOpenState();
@@ -147,14 +149,31 @@ public class TrainContext {
 		currentState.onApproachingStationSignal();
 	}
 	
+	/**
+	 * Used for the arrived at station signal.
+	 */
 	public void onArrivedAtStationSignal() {
 		currentState.onArrivedAtStationSignal();
 	}
+	
+	/**
+	 * Used for the obstruction signal
+	 */
+	public void onObstructionSignal() {
+		currentState.onObstructionSignal();
+	}
 
+	/**
+	 * Displays the text to indicate the train has stopped, 
+	 * doors are closed and before they have opened at the state.
+	 */
 	public void showStoppedDoorClosedBeforeOpeningState() {
 		display.showStoppedDoorClosedBeforeOpeningState();
 	}
 
+	/**
+	 * Displays the text to indicate the doors are opening.
+	 */
 	public void showDoorsOpeningState() {
 		display.showStoppedDoorsOpeningState();
 

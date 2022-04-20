@@ -6,7 +6,7 @@ import edu.ics372.trainfx.timer.Timer;
 /**
  * State to represent when the doors are in a state of opening.
  * 
- * @author Jim Sawicki
+ * @author Jim Sawicki and Parker Talley.
  *
  */
 public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
@@ -15,18 +15,17 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 	private Timer timer;
 
 	/**
-	 * Singleton Pattern
+	 * Singleton Pattern.
 	 */
 	private StoppedDoorsOpeningState() {
-
 	}
 
 	/**
-	 * Returns the singleton instance.
+	 * Returns the StoppedDoorsOpeningState instance.
 	 * 
-	 * @return instance of the class
+	 * @return StoppedDoorsOpeningState instance.
 	 */
-	public static TrainState getInstance() {
+	public static StoppedDoorsOpeningState getInstance() {
 		if (instance == null) {
 			instance = new StoppedDoorsOpeningState();
 		}
@@ -35,23 +34,37 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 
 	@Override
 	public void enter() {
-		System.out.println("ENTERED SDOS"); // TODO debug
-		timer = new Timer(this, 4);
+		System.out.println("Entering: Stopped; Doors opening state..."); // TODO debug
+		// Check if the door has been obstructed to close already.
+		if(StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
+			System.out.println("Doors were NOT obstructed.");
+			timer = new Timer(this, 4);
+		}
+		else {
+			
+			timer = new Timer(this, (int) (StoppedDoorsClosingState.getTimeSpentClosingDoors() / (4.0 / 5.0)));
+		}
 		TrainContext.getInstance().showDoorsOpeningState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
+		
 	}
 
 	@Override
-	public void leave() {
-		timer.stop();
-		timer = null;
-		TrainContext.getInstance().stoppedDoorsOpened();
+	public void onTimerRunsOut() {
 		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(StoppedDoorsOpenState.getInstance());
 	}
 
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
+	}
+	
+	@Override
+	public void leave() {
+		System.out.println("Leaving: Stopped; Doors opening state...\n");
+		timer.stop();
+		timer = null;
 	}
 
 }
