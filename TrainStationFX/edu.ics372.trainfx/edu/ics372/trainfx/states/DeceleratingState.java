@@ -1,7 +1,5 @@
 package edu.ics372.trainfx.states;
 
-import edu.ics372.trainfx.timer.Notifiable;
-
 /**
  * Represents the decelerating state of the train.
  *

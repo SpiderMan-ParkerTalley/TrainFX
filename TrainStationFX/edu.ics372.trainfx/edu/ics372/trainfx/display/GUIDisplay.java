@@ -17,7 +17,7 @@ import javafx.stage.WindowEvent;
 /**
  * GUI to implement the TrainDisplay interface.
  * 
- * @author Jim Sawicki, Sharon Shin TODO: MARK UNTIL CONFIRMED FINISHED
+ * @author Jim Sawicki, Sharon Shin
  */
 
 public class GUIDisplay extends Application implements TrainDisplay {
