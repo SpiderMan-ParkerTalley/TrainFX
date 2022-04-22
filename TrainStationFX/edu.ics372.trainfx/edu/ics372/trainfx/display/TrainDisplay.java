@@ -1,8 +1,7 @@
 package edu.ics372.trainfx.display;
 
 /**
- * Lays out the bare minimum that the display should be able to do. Not finished
- * maybe.
+ * Lays out the bare minimum that the display should be able to do.
  * 
  * @author Jim Sawicki
  *
