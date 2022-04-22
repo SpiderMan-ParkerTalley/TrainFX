@@ -33,7 +33,7 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 
 	@Override
 	public void enter() {
-		System.out.println("Entering: Stopped; Doors open state...");
+//		System.out.println("Entering: Stopped; Doors open state...");
 		// Check if the door has attempted to close already.
 		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
 			System.out.println("Doors were NOT obstructed.");
@@ -50,7 +50,7 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Stopped; Doors open state...\n");
+//		System.out.println("Leaving: Stopped; Doors open state...\n");
 		timer.stop();
 		timer = null;
 	}

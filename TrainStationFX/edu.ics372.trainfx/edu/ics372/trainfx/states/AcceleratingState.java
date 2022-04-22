@@ -64,7 +64,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("Entering: Accelerating state..."); // TODO debug
+//		System.out.println("Entering: Accelerating state...");
 		timer = new Timer(this, 6);
 		TrainContext.getInstance().showAcceleratingState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
@@ -76,7 +76,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Accelerating state...\n"); // TODO debug
+//		System.out.println("Leaving: Accelerating state...\n");
 		timer.stop();
 		timer = null;
 	}

@@ -43,7 +43,7 @@ public class FullSpeedState extends TrainState {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("Entering: Full speed state..."); // TODO debug
+//		System.out.println("Entering: Full speed state...");
 		TrainContext.getInstance().showFullSpeedState();
 	}
 
@@ -52,7 +52,7 @@ public class FullSpeedState extends TrainState {
 	 */
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Full speed state...\n");
+//		System.out.println("Leaving: Full speed state...\n");
 		TrainContext.getInstance().showDeceleratingState();
 	}
 

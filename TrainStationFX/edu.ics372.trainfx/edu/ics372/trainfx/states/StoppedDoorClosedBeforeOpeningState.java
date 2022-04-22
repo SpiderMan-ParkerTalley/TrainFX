@@ -44,7 +44,7 @@ public class StoppedDoorClosedBeforeOpeningState extends TrainState implements N
 
 	@Override
 	public void enter() {
-		System.out.println("Entering: Stopped; Doors closed; Before opening state..."); // TODO debug
+//		System.out.println("Entering: Stopped; Doors closed; Before opening state...");
 		timer = new Timer(this, 1);
 		TrainContext.getInstance().showStoppedDoorClosedBeforeOpeningState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());	
@@ -52,7 +52,7 @@ public class StoppedDoorClosedBeforeOpeningState extends TrainState implements N
 
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Stopped; Doors closed; Before opening state...\n"); // TODO debug
+//		System.out.println("Leaving: Stopped; Doors closed; Before opening state...\n");
 		timer.stop();
 		timer = null;
 	}

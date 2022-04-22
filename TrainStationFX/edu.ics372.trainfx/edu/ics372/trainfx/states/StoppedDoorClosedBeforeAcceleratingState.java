@@ -34,7 +34,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 
 	@Override
 	public void enter() {
-		System.out.println("Entering: Stopped; Doors Closed; Before accelerating state..."); // TODO debug
+//		System.out.println("Entering: Stopped; Doors Closed; Before accelerating state...");
 		// Sets the time spent closing to 0; reset value for next stop.
 		StoppedDoorsClosingState.setTimeSpentClosing(0);
 		timer = new Timer(this, 3);

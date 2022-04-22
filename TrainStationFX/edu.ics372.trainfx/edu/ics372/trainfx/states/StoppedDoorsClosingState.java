@@ -53,7 +53,7 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 
 	@Override
 	public void enter() {
-		System.out.println("Entering: Stopped; Doors closing state...");
+//		System.out.println("Entering: Stopped; Doors closing state...");
 		timer = new Timer(this, TIME_TO_CLOSE_DOORS);
 		TrainContext.getInstance().showStoppedDoorsClosingState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
@@ -88,7 +88,7 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Stopped; Doors closing state...\n");
+//		System.out.println("Leaving: Stopped; Doors closing state...\n");
 		timer.stop();
 		timer = null;
 		TrainContext.getInstance().showTimeLeft(0);
