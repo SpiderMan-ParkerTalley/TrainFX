@@ -9,8 +9,6 @@ import javafx.application.Application;
  * 
  * @author Sharon Shin
  */
-
-//TODO: Fix error? Not sure if this is correct. 
 public class Main {
 	public static void main(String[] args) {
 		Clock.getInstance();
