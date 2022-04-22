@@ -37,7 +37,7 @@ public class DeceleratingState extends TrainState {
 	 */
 	@Override
 	public void enter() {
-		System.out.println("Entering: Decelerating state..."); // TODO debug
+//		System.out.println("Entering: Decelerating state...");
 		TrainContext.getInstance().showDeceleratingState();
 	}
 	
@@ -47,6 +47,6 @@ public class DeceleratingState extends TrainState {
 	 */
 	@Override
 	public void leave() {
-		System.out.println("Leaving: Decelerating state...\n"); // TODO debug
+//		System.out.println("Leaving: Decelerating state...\n");
 	}
 }
