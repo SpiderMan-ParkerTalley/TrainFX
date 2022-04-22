@@ -17,7 +17,7 @@ import javafx.stage.WindowEvent;
 /**
  * GUI to implement the TrainDisplay interface.
  * 
- * @author Jim Sawicki, Sharon Shin
+ * @author Jim Sawicki and Sharon Shin.
  */
 
 public class GUIDisplay extends Application implements TrainDisplay {
@@ -29,7 +29,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	private Text timeValue = new Text("3");
 
 	/**
-	 * Sets up the interface
+	 * Sets up the interface.
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {

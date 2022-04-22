@@ -36,11 +36,11 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 //		System.out.println("Entering: Stopped; Doors open state...");
 		// Check if the door has attempted to close already.
 		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
-			System.out.println("Doors were NOT obstructed.");
+//			System.out.println("Doors were NOT obstructed.");
 			timer = new Timer(this, 30);
 		}
 		else {
-			System.out.println("Doors were obstructed.");
+//			System.out.println("Doors were obstructed.");
 			timer = new Timer(this, 8);
 		}
 		TrainContext.getInstance().showStoppedDoorsOpenState();

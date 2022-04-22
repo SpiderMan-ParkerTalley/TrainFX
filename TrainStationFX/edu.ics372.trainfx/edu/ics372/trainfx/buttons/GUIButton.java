@@ -7,8 +7,7 @@ import javafx.scene.control.Button;
 /**
  * Our very own abstract GUI button class.
  * 
- * @author Jim Sawicki
- * 
+ * @author Jim Sawicki and Parker Talley.
  */
 public abstract class GUIButton extends Button implements EventHandler<ActionEvent> {
 
@@ -16,7 +15,7 @@ public abstract class GUIButton extends Button implements EventHandler<ActionEve
 	 * Create the button with the proper text. Makes the button a listener to clicks
 	 * on itself.
 	 * 
-	 * @param string the text
+	 * @param String the text.
 	 */
 	public GUIButton(String string) {
 		super(string);

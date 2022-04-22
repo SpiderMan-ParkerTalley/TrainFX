@@ -4,10 +4,12 @@ import edu.ics372.trainfx.timer.Notifiable;
 import edu.ics372.trainfx.timer.Timer;
 
 /**
+ * Represents the train state when it is stopped, the doors are closed,
+ * and it is waiting to begin opening the doors.
  * 
  * @author Sharon Shin and Parker Talley.
- *
  */
+
 public class StoppedDoorClosedBeforeOpeningState extends TrainState implements Notifiable{
 	private static StoppedDoorClosedBeforeOpeningState instance;
 	private Timer timer;

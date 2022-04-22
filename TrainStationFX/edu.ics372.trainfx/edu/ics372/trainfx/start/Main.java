@@ -7,8 +7,9 @@ import javafx.application.Application;
 /**
  * This class starts the GUI by running a thread.
  * 
- * @author Sharon Shin
+ * @author Sharon Shin.
  */
+
 public class Main {
 	public static void main(String[] args) {
 		Clock.getInstance();

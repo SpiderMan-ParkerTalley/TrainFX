@@ -12,6 +12,11 @@ import javafx.event.EventHandler;
  */
 public class ObstructionButton extends GUIButton implements EventHandler<ActionEvent>{
 
+	/**
+	 * A constructor for ObstructionButton. 
+	 * 
+	 * @param String a string.
+	 */
 	public ObstructionButton(String string) {
 		super(string);
 	}

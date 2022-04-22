@@ -7,8 +7,8 @@ import edu.ics372.trainfx.timer.Timer;
  * State to represent when the doors are in a state of opening.
  * 
  * @author Jim Sawicki and Parker Talley.
- *
  */
+
 public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 
 	private static StoppedDoorsOpeningState instance;
@@ -37,7 +37,7 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 //		System.out.println("Entering: Stopped; Doors opening state...");
 		// Check if the door has been obstructed to close already.
 		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
-			System.out.println("Doors were NOT obstructed.");
+//			System.out.println("Doors were NOT obstructed.");
 			timer = new Timer(this, 4);
 		} else {
 

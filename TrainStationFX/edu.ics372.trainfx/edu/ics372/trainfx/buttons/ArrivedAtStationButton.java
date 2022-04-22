@@ -13,6 +13,11 @@ import javafx.event.EventHandler;
 
 public class ArrivedAtStationButton extends GUIButton implements EventHandler<ActionEvent> {
 
+	/**
+	 * A constructor for ArrivedAtStationButton.
+	 * 
+	 * @param String a string.
+	 */
 	public ArrivedAtStationButton(String string) {
 		super(string);
 	}

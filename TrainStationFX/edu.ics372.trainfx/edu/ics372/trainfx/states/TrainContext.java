@@ -7,6 +7,7 @@ import edu.ics372.trainfx.display.TrainDisplay;
  * 
  * @author Cristian Zendejas and Parker Talley.
  */
+
 public class TrainContext {
 	private TrainDisplay display;
 	private TrainState currentState;

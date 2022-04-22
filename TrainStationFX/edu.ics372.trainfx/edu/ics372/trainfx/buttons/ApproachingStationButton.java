@@ -9,11 +9,15 @@ import javafx.event.EventHandler;
  * down.
  * 
  * @author Sharon Shin and Parker Talley
- *
  */
 
 public class ApproachingStationButton extends GUIButton implements EventHandler<ActionEvent> {
 
+	/**
+	 * Constructor for ApproachingStationButton.
+	 * 
+	 * @param String a string.
+	 */
 	public ApproachingStationButton(String string) {
 		super(string);
 	}

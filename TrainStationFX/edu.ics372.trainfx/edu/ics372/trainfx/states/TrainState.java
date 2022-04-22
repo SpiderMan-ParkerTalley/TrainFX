@@ -5,6 +5,7 @@ package edu.ics372.trainfx.states;
  * 
  * @author Cristian Zendejas, Sharon Shin, and Parker Talley
  */
+
 public abstract class TrainState {
 	/**
 	 * Initializes the state.
