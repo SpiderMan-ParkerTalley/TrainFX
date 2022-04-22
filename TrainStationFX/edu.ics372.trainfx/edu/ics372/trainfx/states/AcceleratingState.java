@@ -43,7 +43,6 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 * When the deceleration event is triggered, AcceleratingState goes to
 	 * DeceleratingState() instead of FullSpeedState().
 	 */
-	@Override
 	public void onApproachingStationSignal() {
 		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
