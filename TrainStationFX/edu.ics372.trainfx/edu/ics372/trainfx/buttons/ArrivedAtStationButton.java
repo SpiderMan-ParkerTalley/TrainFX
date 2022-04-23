@@ -1,6 +1,6 @@
 package edu.ics372.trainfx.buttons;
 
-import edu.ics372.trainfx.states.DeceleratingState;
+import edu.ics372.trainfx.states.TrainContext;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -24,7 +24,7 @@ public class ArrivedAtStationButton extends GUIButton implements EventHandler<Ac
 
 	@Override
 	public void handle(ActionEvent evnet) {
-		DeceleratingState.getInstance().onStationArrivedSignal();
+		TrainContext.getInstance().onArrivedAtStationSignal();
 	}
 
 }

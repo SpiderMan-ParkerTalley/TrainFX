@@ -8,7 +8,7 @@ package edu.ics372.trainfx.states;
 
 public class DeceleratingState extends TrainState {
 	private static DeceleratingState instance;
-	
+
 	/**
 	 * Singleton Pattern.
 	 */
@@ -26,8 +26,9 @@ public class DeceleratingState extends TrainState {
 		}
 		return instance;
 	}
-	
-	public void onStationArrivedSignal() {
+
+	@Override
+	public void onArrivedAtStationSignal() {
 		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeOpeningState.getInstance());
 	}
 
@@ -40,7 +41,7 @@ public class DeceleratingState extends TrainState {
 //		System.out.println("Entering: Decelerating state...");
 		TrainContext.getInstance().showDeceleratingState();
 	}
-	
+
 	/**
 	 * Method to leave the deceleration state. Called in the changeState method of
 	 * trainContext.
