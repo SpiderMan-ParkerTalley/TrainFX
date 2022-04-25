@@ -61,7 +61,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	}
 
 	/**
-	 * Sets the initial state of the GUI.
+	 * Sets the initial state of the application.
 	 */
 	private void initialState() {
 		showStoppedDoorClosedBeforeAcceleratingState();
