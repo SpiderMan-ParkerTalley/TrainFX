@@ -12,7 +12,7 @@ import edu.ics372.trainfx.timer.Timer;
 public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 	private static StoppedDoorsOpenState instance;
 	private Timer timer;
-	
+
 	/**
 	 * Singleton Pattern.
 	 */
@@ -31,6 +31,10 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 		return instance;
 	}
 
+	/**
+	 * Method for entering this state. Called in the changeState method of
+	 * TrainContext.
+	 */
 	@Override
 	public void enter() {
 //		System.out.println("Entering: Stopped; Doors open state...");
@@ -38,16 +42,18 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 		if (StoppedDoorsClosingState.getTimeSpentClosingDoors() == 0) {
 //			System.out.println("Doors were NOT obstructed.");
 			timer = new Timer(this, 30);
-		}
-		else {
+		} else {
 //			System.out.println("Doors were obstructed.");
 			timer = new Timer(this, 8);
 		}
 		TrainContext.getInstance().showStoppedDoorsOpenState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
-		
+
 	}
 
+	/**
+	 * This method is called when the changeState method in trainContext is called.
+	 */
 	@Override
 	public void leave() {
 //		System.out.println("Leaving: Stopped; Doors open state...\n");
@@ -55,11 +61,18 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 		timer = null;
 	}
 
+	/**
+	 * Called in the Timer class. This is used to update the time value in the GUI.
+	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
 	}
 
+	/**
+	 * Called in the Timer class. This is used to change state once the timer runs
+	 * out.
+	 */
 	@Override
 	public void onTimerRunsOut() {
 		TrainContext.getInstance().showTimeLeft(0);

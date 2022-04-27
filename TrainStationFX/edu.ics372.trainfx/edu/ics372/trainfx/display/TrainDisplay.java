@@ -3,7 +3,7 @@ package edu.ics372.trainfx.display;
 /**
  * Lays out the bare minimum that the display should be able to do.
  * 
- * @author Jim Sawicki.
+ * @author Jim Sawicki and Emmanuel Ojogwu .
  *
  */
 public interface TrainDisplay {

@@ -32,6 +32,10 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 		return instance;
 	}
 
+	/**
+	 * Method for entering this state. Called in the changeState method of
+	 * TrainContext.
+	 */
 	@Override
 	public void enter() {
 //		System.out.println("Entering: Stopped; Doors opening state...");
@@ -48,22 +52,32 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 
 	}
 
+	/**
+	 * This method is called when the changeState method in trainContext is called.
+	 */
 	@Override
-	public void onTimerRunsOut() {
-		TrainContext.getInstance().showTimeLeft(0);
-		TrainContext.getInstance().changeState(StoppedDoorsOpenState.getInstance());
+	public void leave() {
+		// System.out.println("Leaving: Stopped; Doors opening state...\n");
+		timer.stop();
+		timer = null;
 	}
 
+	/**
+	 * Called in the Timer class. This is used to update the time value in the GUI.
+	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
 	}
 
+	/**
+	 * Called in the Timer class. This is used to change state once the timer runs
+	 * out.
+	 */
 	@Override
-	public void leave() {
-//		System.out.println("Leaving: Stopped; Doors opening state...\n");
-		timer.stop();
-		timer = null;
+	public void onTimerRunsOut() {
+		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(StoppedDoorsOpenState.getInstance());
 	}
 
 }

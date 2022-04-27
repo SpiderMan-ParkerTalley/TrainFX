@@ -7,7 +7,7 @@ import edu.ics372.trainfx.timer.Timer;
  * Represents the train state when it is stopped and the doors are starting to
  * close after being open
  * 
- * @author Cristian Zendejas and Parker Talley.
+ * @author Cristian Zendejas, Emmanuel Ojogwu, and Parker Talley.
  */
 public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 	private static StoppedDoorsClosingState instance;
@@ -51,12 +51,46 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 		timeSpentClosingDoors = value;
 	}
 
+	/**
+	 * Method for entering this state. Called in the changeState method of
+	 * TrainContext.
+	 */
 	@Override
 	public void enter() {
 //		System.out.println("Entering: Stopped; Doors closing state...");
 		timer = new Timer(this, TIME_TO_CLOSE_DOORS);
 		TrainContext.getInstance().showStoppedDoorsClosingState();
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
+	}
+
+	/**
+		 * This method is called when the changeState method in trainContext is called.
+		 */
+		@Override
+		public void leave() {
+	//		System.out.println("Leaving: Stopped; Doors closing state...\n");
+			timer.stop();
+			timer = null;
+			TrainContext.getInstance().showTimeLeft(0);
+		}
+
+	/**
+	 * Called in the Timer class. This is used to update the time value in the GUI.
+	 */
+	@Override
+	public void OnTimerTick(int timerValue) {
+		timeSpentClosingDoors = timerValue;
+		TrainContext.getInstance().showTimeLeft(timerValue);
+	}
+
+	/**
+	 * Called in the Timer class. This is used to change state once the timer runs
+	 * out.
+	 */
+	@Override
+	public void onTimerRunsOut() {
+		TrainContext.getInstance().showTimeLeft(0);
+		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
 	}
 
 	@Override
@@ -72,25 +106,5 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 			timeSpentClosingDoors = 1;
 		}
 		TrainContext.getInstance().changeState(StoppedDoorsOpeningState.getInstance());
-	}
-
-	@Override
-	public void OnTimerTick(int timerValue) {
-		timeSpentClosingDoors = timerValue;
-		TrainContext.getInstance().showTimeLeft(timerValue);
-	}
-
-	@Override
-	public void onTimerRunsOut() {
-		TrainContext.getInstance().showTimeLeft(0);
-		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
-	}
-
-	@Override
-	public void leave() {
-//		System.out.println("Leaving: Stopped; Doors closing state...\n");
-		timer.stop();
-		timer = null;
-		TrainContext.getInstance().showTimeLeft(0);
 	}
 }

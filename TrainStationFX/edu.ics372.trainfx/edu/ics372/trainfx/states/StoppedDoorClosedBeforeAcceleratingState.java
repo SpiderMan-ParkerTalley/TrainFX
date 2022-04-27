@@ -32,6 +32,10 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		return instance;
 	}
 
+	/**
+	 * Method for entering this state. Called in the changeState method of
+	 * TrainContext.
+	 */
 	@Override
 	public void enter() {
 //		System.out.println("Entering: Stopped; Doors Closed; Before accelerating state...");
@@ -42,6 +46,9 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
+	/**
+	 * Cleans up processes upon leaving the state.
+	 */
 	@Override
 	public void leave() {
 		timer.stop();
@@ -49,11 +56,18 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		TrainContext.getInstance().showAcceleratingState();
 	}
 
+	/**
+	 * Called in the Timer class. This is used to update the time value in the GUI.
+	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showTimeLeft(timerValue);
 	}
 
+	/**
+	 * Called in the Timer class. This is used to change state once the timer runs
+	 * out.
+	 */
 	@Override
 	public void onTimerRunsOut() {
 //		System.out.println("Leaving: Stopped; Doors Closed; Before accelerating state...\n"); // TODO debug
