@@ -21,13 +21,11 @@ import javafx.stage.WindowEvent;
  */
 
 public class GUIDisplay extends Application implements TrainDisplay {
-
 	private GUIButton AtStationButton;
 	private GUIButton ApproachingButton;
 	private GUIButton ObstructionButton;
 	private Text trainStatus = new Text("Stopped Door Closed Before Accelerating");
 	private Text doorStatus = new Text("Doors Cloesd");
-	private Text timeValue = new Text("3");
 
 	/**
 	 * Sets up the interface.
@@ -72,6 +70,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is in the Accelerating state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showAcceleratingState(int timerValue) {
@@ -98,6 +98,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorClosedBeforeAccelerating state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showStoppedDoorClosedBeforeAcceleratingState(int timerValue) {
@@ -107,6 +109,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorClosedBeforeOpening state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showStoppedDoorClosedBeforeOpeningState(int timerValue) {
@@ -116,6 +120,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorsClosing state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showStoppedDoorsClosingState(int timerValue) {
@@ -124,6 +130,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpening state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showStoppedDoorsOpeningState(int timerValue) {
@@ -132,6 +140,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpen state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	@Override
 	public void showStoppedDoorsOpenState(int timerValue) {

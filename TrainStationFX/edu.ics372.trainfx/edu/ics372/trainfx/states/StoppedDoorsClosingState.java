@@ -63,18 +63,15 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 	}
 
 	/**
-		 * This method is called when the changeState method in trainContext is called.
-		 */
-		@Override
-		public void leave() {
-	//		System.out.println("Leaving: Stopped; Doors closing state...\n");
-			timer.stop();
-			timer = null;
-		}
-
-	/**
-	 * Called in the Timer class. This is used to update the time value in the GUI.
+	 * This method is called when the changeState method in trainContext is called.
 	 */
+	@Override
+	public void leave() {
+//		System.out.println("Leaving: Stopped; Doors closing state...\n");
+		timer.stop();
+		timer = null;
+	}
+
 	@Override
 	public void OnTimerTick(int timerValue) {
 		timeSpentClosingDoors = timerValue;

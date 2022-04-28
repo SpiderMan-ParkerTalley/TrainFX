@@ -10,6 +10,8 @@ public interface TrainDisplay {
 
 	/**
 	 * Indicate that the train is in the Accelerating state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showAcceleratingState(int timerValue);
 
@@ -25,26 +27,36 @@ public interface TrainDisplay {
 
 	/**
 	 * Indicate that the train is the StoppedDoorClosedBeforeAccelerating state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showStoppedDoorClosedBeforeAcceleratingState(int timerValue);
 
 	/**
 	 * Indicate that the train is the StoppedDoorClosedBeforeOpening state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showStoppedDoorClosedBeforeOpeningState(int timerValue);
 
 	/**
 	 * Indicate that the train is the StoppedDoorsClosing state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showStoppedDoorsClosingState(int timerValue);
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpening state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showStoppedDoorsOpeningState(int timerValue);
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpen state.
+	 * 
+	 * @param timerValue the current timer value.
 	 */
 	public void showStoppedDoorsOpenState(int timerValue);
 }

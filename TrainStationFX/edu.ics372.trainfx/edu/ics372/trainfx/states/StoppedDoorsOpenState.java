@@ -59,9 +59,6 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 		timer = null;
 	}
 
-	/**
-	 * Called in the Timer class. This is used to update the time value in the GUI.
-	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
 		TrainContext.getInstance().showStoppedDoorsOpenState(timer.getTimeValue());
