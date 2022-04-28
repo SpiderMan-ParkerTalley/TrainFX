@@ -47,9 +47,7 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 
 			timer = new Timer(this, (int) (StoppedDoorsClosingState.getTimeSpentClosingDoors() * (4.0 / 5.0)));
 		}
-		TrainContext.getInstance().showDoorsOpeningState();
-		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
-
+		TrainContext.getInstance().showDoorsOpeningState(timer.getTimeValue());
 	}
 
 	/**
@@ -67,7 +65,7 @@ public class StoppedDoorsOpeningState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
-		TrainContext.getInstance().showTimeLeft(timerValue);
+		TrainContext.getInstance().showDoorsOpeningState(timer.getTimeValue());
 	}
 
 	/**
