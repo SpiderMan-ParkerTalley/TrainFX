@@ -35,7 +35,6 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 * DeceleratingState() instead of FullSpeedState().
 	 */
 	public void onApproachingStationSignal() {
-		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(DeceleratingState.getInstance());
 	}
 
@@ -61,12 +60,9 @@ public class AcceleratingState extends TrainState implements Notifiable {
 		timer = null;
 	}
 
-	/**
-	 * Called in the Timer class. This is used to update the time value in the GUI.
-	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
-		TrainContext.getInstance().showAcceleratingState(timer.getTimeValue());
+		TrainContext.getInstance().showAcceleratingState(timerValue);
 	}
 
 	/**
@@ -75,6 +71,7 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onTimerRunsOut() {
+		TrainContext.getInstance().showAcceleratingState(0);
 		TrainContext.getInstance().changeState(FullSpeedState.getInstance());
 	}
 

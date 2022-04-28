@@ -71,14 +71,6 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	}
 
 	/**
-	 * Shows the time remaining
-	 */
-	@Override
-	public void showTimeLeft(int time) {
-		timeValue.setText(" " + time);
-	}
-
-	/**
 	 * Indicate that the train is in the Accelerating state.
 	 */
 	@Override

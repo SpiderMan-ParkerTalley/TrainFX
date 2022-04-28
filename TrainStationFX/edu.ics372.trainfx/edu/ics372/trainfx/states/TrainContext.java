@@ -149,14 +149,4 @@ public class TrainContext {
 	public void showStoppedDoorsOpenState(int timerValue) {
 		display.showStoppedDoorsOpenState(timerValue);
 	}
-
-	/**
-	 * This invokes the right method of the display. This helps protect the states
-	 * from changes to the way the system utilizes the state changes.
-	 * 
-	 * @param time time left for cooking
-	 */
-	public void showTimeLeft(int time) {
-		display.showTimeLeft(time);
-	}
 }

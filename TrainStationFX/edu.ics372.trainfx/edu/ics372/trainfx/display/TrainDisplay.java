@@ -9,13 +9,6 @@ package edu.ics372.trainfx.display;
 public interface TrainDisplay {
 
 	/**
-	 * Shows the time remaining before the particular state change.
-	 * 
-	 * @param time Time remaining in seconds.
-	 */
-	public void showTimeLeft(int time);
-
-	/**
 	 * Indicate that the train is in the Accelerating state.
 	 */
 	public void showAcceleratingState(int timerValue);
