@@ -87,8 +87,8 @@ public class TrainContext {
 	/**
 	 * Shows that the train is in the AcceleratingState().
 	 */
-	public void showAcceleratingState() {
-		display.showAcceleratingState();
+	public void showAcceleratingState(int timerValue) {
+		display.showAcceleratingState(timerValue);
 	
 	}
 
@@ -103,8 +103,8 @@ public class TrainContext {
 	/**
 	 * Displays the text to indicate the doors are opening.
 	 */
-	public void showDoorsOpeningState() {
-		display.showStoppedDoorsOpeningState();
+	public void showDoorsOpeningState(int timerValue) {
+		display.showStoppedDoorsOpeningState(timerValue);
 	
 	}
 
@@ -119,9 +119,10 @@ public class TrainContext {
 	/**
 	 * Displays the text to indicate the train has entered the
 	 * stoppedDoorClosedBeforeAcceleratingState.
+	 * @param timerValue 
 	 */
-	public void showStoppedDoorClosedBeforeAcceleratingState() {
-		display.showStoppedDoorClosedBeforeAcceleratingState();
+	public void showStoppedDoorClosedBeforeAcceleratingState(int timerValue) {
+		display.showStoppedDoorClosedBeforeAcceleratingState(timerValue);
 
 	}
 
@@ -129,24 +130,24 @@ public class TrainContext {
 	 * Displays the text to indicate the train has stopped, doors are closed and
 	 * before they have opened at the state.
 	 */
-	public void showStoppedDoorClosedBeforeOpeningState() {
-		display.showStoppedDoorClosedBeforeOpeningState();
+	public void showStoppedDoorClosedBeforeOpeningState(int timerValue) {
+		display.showStoppedDoorClosedBeforeOpeningState(timerValue);
 	}
 
 	/**
 	 * Displays the text to indicate the train has entered the
 	 * StoppedDoorsClosingState.
 	 */
-	public void showStoppedDoorsClosingState() {
-		display.showStoppedDoorsClosingState();
+	public void showStoppedDoorsClosingState(int timerValue) {
+		display.showStoppedDoorsClosingState(timerValue);
 	}
 
 	/*
 	 * Displays the text to indicate the train has entered the
 	 * StoppedDoorsOpenState.
 	 */
-	public void showStoppedDoorsOpenState() {
-		display.showStoppedDoorsOpenState();
+	public void showStoppedDoorsOpenState(int timerValue) {
+		display.showStoppedDoorsOpenState(timerValue);
 	}
 
 	/**
@@ -158,5 +159,4 @@ public class TrainContext {
 	public void showTimeLeft(int time) {
 		display.showTimeLeft(time);
 	}
-
 }

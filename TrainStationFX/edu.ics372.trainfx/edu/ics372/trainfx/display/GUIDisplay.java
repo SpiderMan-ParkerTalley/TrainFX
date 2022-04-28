@@ -26,6 +26,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	private GUIButton ApproachingButton;
 	private GUIButton ObstructionButton;
 	private Text trainStatus = new Text("Stopped Door Closed Before Accelerating");
+	private Text doorStatus = new Text("Doors Cloesd");
 	private Text timeValue = new Text("3");
 
 	/**
@@ -42,6 +43,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		pane.setVgap(10);
 		pane.setPadding(new Insets(10, 10, 10, 10));
 		pane.add(trainStatus, 0, 0);
+		pane.add(doorStatus, 0, 0);
 		pane.add(timeValue, 1, 0);
 		pane.add(AtStationButton, 2, 0);
 		pane.add(ApproachingButton, 3, 0);
@@ -64,7 +66,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 * Sets the initial state of the application.
 	 */
 	private void initialState() {
-		showStoppedDoorClosedBeforeAcceleratingState();
+		showStoppedDoorClosedBeforeAcceleratingState(3);
 		TrainContext.getInstance().setDisplay(this);
 		TrainContext.getInstance().initialize();
 	}
@@ -81,8 +83,8 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 * Indicate that the train is in the Accelerating state.
 	 */
 	@Override
-	public void showAcceleratingState() {
-		trainStatus.setText("Train is accelerating");
+	public void showAcceleratingState(int timerValue) {
+		trainStatus.setText(timerValue + "seconds left before train is at full speed");
 
 	}
 
@@ -107,39 +109,41 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 * Indicate that the train is the StoppedDoorClosedBeforeAccelerating state.
 	 */
 	@Override
-	public void showStoppedDoorClosedBeforeAcceleratingState() {
-		trainStatus.setText("Train is stopped and doors are closed");
+	public void showStoppedDoorClosedBeforeAcceleratingState(int timerValue) {
+		doorStatus.setText("Doors closed");
+		trainStatus.setText(timerValue + " seconds left before accelerating");
 	}
 
 	/**
 	 * Indicate that the train is the StoppedDoorClosedBeforeOpening state.
 	 */
 	@Override
-	public void showStoppedDoorClosedBeforeOpeningState() {
-		trainStatus.setText("Train is stopped and doors are closed");
+	public void showStoppedDoorClosedBeforeOpeningState(int timerValue) {
+		trainStatus.setText("Train stopped");
+		doorStatus.setText(timerValue + " seconds left before doors open");
 	}
 
 	/**
 	 * Indicate that the train is the StoppedDoorsClosing state.
 	 */
 	@Override
-	public void showStoppedDoorsClosingState() {
-		trainStatus.setText("Train is stopped and doors are closing");
+	public void showStoppedDoorsClosingState(int timerValue) {
+		trainStatus.setText(timerValue + " seconds left before doors are closed");
 	}
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpening state.
 	 */
 	@Override
-	public void showStoppedDoorsOpeningState() {
-		trainStatus.setText("Train is stopped and doors are opening");
+	public void showStoppedDoorsOpeningState(int timerValue) {
+		doorStatus.setText(timerValue + " seconds left before doors are open");
 	}
 
 	/**
 	 * Indicate that the train is the StoppedDoorsOpen state.
 	 */
 	@Override
-	public void showStoppedDoorsOpenState() {
-		trainStatus.setText("Train is stopped and doors are open");
+	public void showStoppedDoorsOpenState(int timerValue) {
+		doorStatus.setText(timerValue + " seconds before door close");
 	}
 }

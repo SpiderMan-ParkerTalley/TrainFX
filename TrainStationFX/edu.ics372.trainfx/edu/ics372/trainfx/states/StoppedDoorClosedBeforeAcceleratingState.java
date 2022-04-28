@@ -42,7 +42,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		// Sets the time spent closing to 0; reset value for next stop.
 		StoppedDoorsClosingState.setTimeSpentClosing(0);
 		timer = new Timer(this, 3);
-		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState();
+		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState(timerValue);
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
@@ -61,7 +61,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
-		TrainContext.getInstance().showTimeLeft(timerValue);
+		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState(timerValue);
 	}
 
 	/**
