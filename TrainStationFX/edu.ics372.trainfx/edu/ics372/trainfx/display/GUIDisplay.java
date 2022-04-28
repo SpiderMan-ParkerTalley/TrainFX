@@ -34,9 +34,9 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		ObstructionButton = new ObstructionButton("Obstruction");
-		ApproachingButton = new ApproachingStationButton("Approaching Station");
-		AtStationButton = new ArrivedAtStationButton("Arrived at Station");
+		ObstructionButton = new ObstructionButton("Door Obstructing");
+		ApproachingButton = new ApproachingStationButton("Station Reaching");
+		AtStationButton = new ArrivedAtStationButton("Station Reached");
 
 		GridPane pane = new GridPane();
 		pane.setHgap(10);
@@ -119,7 +119,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	@Override
 	public void showStoppedDoorClosedBeforeOpeningState(int timerValue) {
 		trainStatus.setText("Train stopped");
-		doorStatus.setText(timerValue + " seconds left before doors open");
+		doorStatus.setText(timerValue + " seconds left before doors begin opening");
 	}
 
 	/**
@@ -143,6 +143,6 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 */
 	@Override
 	public void showStoppedDoorsOpenState(int timerValue) {
-		doorStatus.setText(timerValue + " seconds before door close");
+		doorStatus.setText(timerValue + " seconds before doors begin closing");
 	}
 }
