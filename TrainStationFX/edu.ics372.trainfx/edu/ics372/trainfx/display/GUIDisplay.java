@@ -40,7 +40,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 
 		GridPane pane = new GridPane();
 		pane.setHgap(10);
-		pane.setVgap(10);
+		pane.setVgap(11);
 		pane.setPadding(new Insets(10, 10, 10, 10));
 		pane.add(trainStatus, 0, 0);
 		pane.add(doorStatus, 3, 0);
@@ -83,7 +83,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 */
 	@Override
 	public void showAcceleratingState(int timerValue) {
-		trainStatus.setText(timerValue + "seconds left before train is at full speed");
+		trainStatus.setText(timerValue + " seconds left before train is at full speed");
 
 	}
 
@@ -127,7 +127,7 @@ public class GUIDisplay extends Application implements TrainDisplay {
 	 */
 	@Override
 	public void showStoppedDoorsClosingState(int timerValue) {
-		trainStatus.setText(timerValue + " seconds left before doors are closed");
+		doorStatus.setText(timerValue + " seconds left before doors are closed");
 	}
 
 	/**
