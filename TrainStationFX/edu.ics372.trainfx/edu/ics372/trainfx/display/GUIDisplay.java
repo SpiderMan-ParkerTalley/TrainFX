@@ -43,11 +43,10 @@ public class GUIDisplay extends Application implements TrainDisplay {
 		pane.setVgap(10);
 		pane.setPadding(new Insets(10, 10, 10, 10));
 		pane.add(trainStatus, 0, 0);
-		pane.add(doorStatus, 2, 0);
-		pane.add(timeValue, 1, 0);
-		pane.add(AtStationButton, 2, 0);
-		pane.add(ApproachingButton, 3, 0);
-		pane.add(ObstructionButton, 4, 0);
+		pane.add(doorStatus, 3, 0);
+		pane.add(AtStationButton, 6, 0);
+		pane.add(ApproachingButton, 7, 0);
+		pane.add(ObstructionButton, 8, 0);
 		Scene scene = new Scene(pane);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("TrainGUI");
