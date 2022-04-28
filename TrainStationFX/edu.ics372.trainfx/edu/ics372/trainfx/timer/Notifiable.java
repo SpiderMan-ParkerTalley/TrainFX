@@ -1,3 +1,9 @@
+/**
+ * This classes code was borrowed from Professor Brahma Dathan.
+ * 
+ * @author Brahma Dathan.
+ */
+
 package edu.ics372.trainfx.timer;
 
 public interface Notifiable {

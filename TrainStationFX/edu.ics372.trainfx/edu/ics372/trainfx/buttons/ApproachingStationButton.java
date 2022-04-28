@@ -8,7 +8,7 @@ import javafx.event.EventHandler;
  * This button tells the train a station is approaching and makes the train slow
  * down.
  * 
- * @author Sharon Shin and Parker Talley
+ * @author Sharon Shin and Parker Talley.
  */
 
 public class ApproachingStationButton extends GUIButton implements EventHandler<ActionEvent> {

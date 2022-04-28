@@ -3,7 +3,7 @@ package edu.ics372.trainfx.states;
 /**
  * Abstract class for all states
  * 
- * @author Cristian Zendejas, Sharon Shin, and Parker Talley
+ * @author Cristian Zendejas, Sharon Shin, and Parker Talley.
  */
 
 public abstract class TrainState {
@@ -13,7 +13,7 @@ public abstract class TrainState {
 	public abstract void enter();
 
 	/**
-	 * Performs any necessary clean up while leaving the state.
+	 * Initializes the state.
 	 */
 	public abstract void leave();
 

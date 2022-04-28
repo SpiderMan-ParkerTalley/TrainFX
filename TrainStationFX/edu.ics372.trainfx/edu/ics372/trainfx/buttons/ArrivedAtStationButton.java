@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 /**
  * This button tells the train it has arrived at a station and stops the train.
  * 
- * @author Sharon Shin and Parker Talley
+ * @author Sharon Shin and Parker Talley.
  *
  */
 

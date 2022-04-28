@@ -1,3 +1,9 @@
+/**
+ * This classes code was borrowed from Professor Brahma Dathan.
+ * 
+ * @author Brahma Dathan.
+ */
+
 package edu.ics372.trainfx.timer;
 
 import java.beans.PropertyChangeListener;
@@ -56,8 +62,7 @@ public class Clock implements Runnable {
 				this.propertyChangeSupport.firePropertyChange(null, null, null);
 
 			}
-		} catch (InterruptedException ie) {
-		}
+		} catch (InterruptedException ie) {}
 	}
 
 }
