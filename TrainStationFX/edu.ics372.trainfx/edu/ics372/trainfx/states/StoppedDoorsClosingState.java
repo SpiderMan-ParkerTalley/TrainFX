@@ -59,8 +59,7 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 	public void enter() {
 //		System.out.println("Entering: Stopped; Doors closing state...");
 		timer = new Timer(this, TIME_TO_CLOSE_DOORS);
-		TrainContext.getInstance().showStoppedDoorsClosingState();
-		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
+		TrainContext.getInstance().showStoppedDoorsClosingState(timer.getTimeValue());
 	}
 
 	/**
@@ -80,7 +79,7 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 	@Override
 	public void OnTimerTick(int timerValue) {
 		timeSpentClosingDoors = timerValue;
-		TrainContext.getInstance().showTimeLeft(timerValue);
+		TrainContext.getInstance().showStoppedDoorsClosingState(timer.getTimeValue());
 	}
 
 	/**
@@ -89,7 +88,6 @@ public class StoppedDoorsClosingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onTimerRunsOut() {
-		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(StoppedDoorClosedBeforeAcceleratingState.getInstance());
 	}
 

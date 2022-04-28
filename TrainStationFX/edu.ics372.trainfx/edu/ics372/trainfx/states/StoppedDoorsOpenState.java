@@ -46,9 +46,7 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 //			System.out.println("Doors were obstructed.");
 			timer = new Timer(this, 8);
 		}
-		TrainContext.getInstance().showStoppedDoorsOpenState();
-		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
-
+		TrainContext.getInstance().showStoppedDoorsOpenState(timer.getTimeValue());
 	}
 
 	/**
@@ -66,7 +64,7 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void OnTimerTick(int timerValue) {
-		TrainContext.getInstance().showTimeLeft(timerValue);
+		TrainContext.getInstance().showStoppedDoorsOpenState(timer.getTimeValue());
 	}
 
 	/**
@@ -75,7 +73,6 @@ public class StoppedDoorsOpenState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onTimerRunsOut() {
-		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(StoppedDoorsClosingState.getInstance());
 	}
 }

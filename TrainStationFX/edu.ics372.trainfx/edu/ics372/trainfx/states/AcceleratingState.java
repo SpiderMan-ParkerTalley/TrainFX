@@ -75,7 +75,6 @@ public class AcceleratingState extends TrainState implements Notifiable {
 	 */
 	@Override
 	public void onTimerRunsOut() {
-		TrainContext.getInstance().showTimeLeft(0);
 		TrainContext.getInstance().changeState(FullSpeedState.getInstance());
 	}
 

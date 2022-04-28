@@ -42,7 +42,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 		// Sets the time spent closing to 0; reset value for next stop.
 		StoppedDoorsClosingState.setTimeSpentClosing(0);
 		timer = new Timer(this, 3);
-		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState(timerValue);
+		TrainContext.getInstance().showStoppedDoorClosedBeforeAcceleratingState(timer.getTimeValue());
 		TrainContext.getInstance().showTimeLeft(timer.getTimeValue());
 	}
 
@@ -53,7 +53,6 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 	public void leave() {
 		timer.stop();
 		timer = null;
-		TrainContext.getInstance().showAcceleratingState();
 	}
 
 	/**
@@ -70,8 +69,7 @@ public class StoppedDoorClosedBeforeAcceleratingState extends TrainState impleme
 	 */
 	@Override
 	public void onTimerRunsOut() {
-//		System.out.println("Leaving: Stopped; Doors Closed; Before accelerating state...\n"); // TODO debug
-		TrainContext.getInstance().showTimeLeft(0);
+//		System.out.println("Leaving: Stopped; Doors Closed; Before accelerating state...\n");
 		TrainContext.getInstance().changeState(AcceleratingState.getInstance());
 	}
 }
